@@ -1,23 +1,57 @@
-# Portfolio — https://feio.in
+# feio.in — portfolio
 
-Personal portfolio site. **Plain HTML, CSS and vanilla JavaScript — no framework, no build step.**
-Deploying is just uploading files.
+Personal site for **https://feio.in**. Plain HTML, CSS and vanilla JavaScript —
+**no framework, no build step, no dependencies**. Deploying is uploading files.
 
 ## Structure
 
 ```
 index.html              the whole site
-404.html                not-found page
+404.html                not-found page (shares the design system)
 robots.txt
 sitemap.xml
 site.webmanifest
 assets/
-  css/styles.css
-  js/main.js
+  css/styles.css        the design system + every component
+  js/main.js            ~2kB of interactions
   img/favicon.svg
-  img/og.svg
-resume/                 put your PDF here (see TODO below)
+  img/og.svg            social preview card
+resume/                 put a PDF here (see TODO below)
 ```
+
+## Design system
+
+Tokens live at the top of `styles.css` and everything else consumes them.
+
+| Group | Tokens |
+|---|---|
+| Type | `--step--1` … `--step-6` (fluid `clamp()`) |
+| Leading | `--leading-tight` `-snug` `-normal` `-relaxed` |
+| Tracking | `--tracking-tighter` `-tight` `-normal` `-wide` `-widest` |
+| Motion | `--ease`, `--ease-out`, `--ease-spring`, `--dur-fast/-/-slow` |
+| Geometry | `--wrap` (1200px), `--measure` (34em), `--gutter`, `--section` |
+| Colour | `--paper`, `--surface-1..3`, `--ink`, `--ink-2..4`, `--line`, `--line-soft`, `--accent` |
+
+Colour is `oklch()` and the dark theme is a token re-map under
+`:root[data-theme="dark"]` — no duplicated rules. Hierarchy comes from an
+**alpha-ramp neutral** rather than hand-picked greys, and elevation is done with
+**hairline borders instead of shadows**.
+
+Three themes to reason about: the site defaults to `data-theme="dark"`, the
+inline `<head>` script flips to light on first visit if the OS prefers it, and
+`.site-foot` **forces itself dark in both themes** on purpose.
+
+## Verified
+
+Checked in headless Chrome via the DevTools Protocol:
+
+- **Contrast** — 30/30 text pairs pass WCAG AA (4.5:1 body, 3:1 large) in
+  light *and* dark, at 390 / 768 / 1440.
+- **No horizontal overflow** at any breakpoint.
+- **Scroll reveal** staggers in (7/46 at scroll-top, 46/46 after scrolling) and
+  degrades to fully-visible under `prefers-reduced-motion: reduce`.
+- Zero console errors, zero broken custom properties, balanced markup,
+  no nested anchors, every `target="_blank"` carries `rel="noopener"`.
 
 ## Local preview
 
@@ -25,47 +59,34 @@ Any static server works:
 
 ```bash
 python -m http.server 8000
-# then open http://localhost:3000
+# open http://localhost:8000
 ```
 
-## What you still need to fill in
+## Still to fill in
 
-Everything below is marked with a `TODO` badge on the page itself, so you can
-find them by looking. Grep for it:
+Everything is marked with a `TODO` badge on the page itself:
+
+1. **Bio** — the hero lede and the About section are drafts. Update `<title>`,
+   the meta/OG tags, the JSON-LD block, and `site.webmanifest` to match.
+2. **Timeline** — `#background` has one real entry and one placeholder.
+3. **Location** — the About facts panel says "India".
+4. **More links** — the "Elsewhere" cell in Contact is a placeholder.
+5. **Résumé** — drop a PDF at `resume/karan-resume.pdf` and link it from the
+   Contact grid (the cell is already stubbed).
+6. **Email** — `effestier@aol.com`, in three places: the `mailto:`, the visible
+   text, and `data-email` on the copy button. Keep all three in sync.
+
+Find them all with:
 
 ```bash
 grep -n "TODO" index.html
 ```
 
-1. **Name and bio** — the site currently says "Karan". Change it in `index.html`:
-   - `<title>`, `<meta name="description">`, OG/Twitter tags
-   - the JSON-LD block (`"name"`, `"sameAs"`)
-   - the hero `<h1>`, the lede paragraph, and the About section
-   - `site.webmanifest` (`name`, `short_name`, `description`)
+## Adding a project
 
-2. **Email** — set to `effestier@aol.com`. Change it in the contact card (the visible
-   text and the `mailto:` link) in `index.html`.
-
-3. **Résumé PDF** — drop your file at `resume/karan-resume.pdf` using exactly that
-   filename, or change the `href` in the hero's "Download résumé" button.
-
-4. **Experience / Education** — the three timeline items in the Experience section
-   are placeholders. Replace with your real roles and dates.
-
-5. **More contact links** — the "More" card in Contact is a placeholder. Add cards
-   for X, LinkedIn, Instagram, Discord, Telegram, etc. in the same shape as the
-   existing ones.
-
-6. **Location** — the About facts panel says "India".
-
-7. **Social preview image** — `assets/img/og.svg` is the card shown when the link
-   is shared. Keep the same filename, or update the `og:image` URL.
-
-## Projects
-
-The eight project cards come from your real public repositories. To add, drop in
-another GitHub URL and edit the description to match what the tool actually does —
-hirers read the description, not the repo name.
+The work list is a flat `<ol class="index">` per group, wrapped in an `<li>`.
+Copy an existing `<a class="row">` and change the name, description, tech line
+and `href`. Row numbers are manual — renumber the group if it matters.
 
 ## Deploying
 

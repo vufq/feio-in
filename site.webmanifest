@@ -4,8 +4,8 @@
   "description": "Security research tooling, LLM infrastructure and open-source developer tools.",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#0b0b0f",
-  "theme_color": "#0b0b0f",
+  "background_color": "#08090c",
+  "theme_color": "#08090c",
   "icons": [
     {
       "src": "/assets/img/favicon.svg",
