@@ -6,19 +6,40 @@ uploading files.
 
 ## The design in one paragraph
 
-A printed catalogue with counted figures. The page is an asymmetric two-column
-grid: a fixed narrow margin carries small monospace section labels, and the main
-column carries continuous text. Body copy is **Fraunces**, a variable serif, at a
-real reading measure. There is exactly **one theme** — warm paper, near-black ink,
-one rust accent, one green for licence marks — because the content is prose and a
-catalogue prints on paper. No dashboard widgets, no cards, no pills, no badges,
-no gradients, no animation beyond a 120–200ms underline and colour transition on
-hover.
+A printed catalogue with counted figures, opened by a unit chart. The page is
+an asymmetric two-column grid: a fixed narrow margin carries small monospace
+section labels, and the main column carries continuous text. Body copy is
+**Fraunces**, a variable serif, set much larger than a conventional body face —
+the ledo runs to 6.4rem on a display optical size rather than being scaled-up
+paragraph text.
 
-The graphics are the honest kind: horizontal bars drawn in CSS from figures read
-out of the GitHub API. They are not decorative sparklines, and there is
-deliberately no commit-activity chart — the `pushed_at` dates for these accounts
-only span five months, so a sparkline would imply a history that does not exist.
+There is exactly **one theme** — warm paper, near-black ink, one rust accent,
+one green for licence marks — because the content is prose and a catalogue
+prints on paper. Two sections invert locally (the figures band and the
+colophon) by re-declaring the same tokens inside the element. That is
+composition, not a second theme: `color-scheme` stays `light`, `body` stays
+paper, and there is no toggle, no stored preference and no alternate
+stylesheet. The render suite asserts exactly that on every width.
+
+No dashboard widgets, no cards, no pills, no badges, no gradients, no
+animation beyond a 120–200ms underline, lift and colour transition on hover.
+
+### The graphics are the honest kind
+
+The hero graphic is a **unit chart**: one square per repository, 37 squares,
+colour-coded by language and grouped so the colour blocks read as a chart
+instead of noise. Each square is a real link to that repository, with a title
+and an `aria-label`. The count *is* the graphic — nothing is scaled, so the
+picture cannot drift from the data.
+
+Below it, the figures band draws the rest as CSS bars: six largest repositories
+by source size, and three proportion bars for licensing, documentation and
+topic coverage. Every width is a hardcoded percentage because the width is the
+data.
+
+There is deliberately no commit-activity sparkline. The `pushed_at` dates for
+these accounts only span five months, so a chart of them would imply a history
+that does not exist.
 
 ## Structure
 
@@ -91,38 +112,58 @@ heading, so the document outline stays one `h1` plus five `h2`s — each band
 carries an `.sr-only` `h2` for screen readers and a visible margin label for
 everyone else.
 
+### The unit chart
+
+```html
+<a class="unit unit-python" href="https://github.com/RootBugs/KE3NZ"
+   target="_blank" rel="noopener noreferrer"
+   title="KE3NZ — Python" aria-label="KE3NZ, Python"></a>
+```
+
+`.units-grid` is `repeat(auto-fill, minmax(1.3rem, 1.8rem))`, so the blocks
+wrap to whatever the column allows — about 25 per row on a desktop, 11 on a
+phone — and each square keeps `aspect-ratio: 1`. The five language buckets are
+declared once as colour tokens (`--l-python`, `--l-typescript`, `--l-html`,
+`--l-other`, `--l-none`) and re-declared inside the inverted band, so the same
+chart inverts cleanly if it is ever moved.
+
 ### The counted figures
 
-`#shape` is a band of CSS-drawn bars. Each `<li class="bar-row">` is a
-three-track grid: label, track, value.
+`#shape` is the inverted band. Each `<li class="bar-row">` is a three-track
+grid: label, track, value.
 
 ```html
 <li class="bar-row">
-  <span class="bar-name">Python</span>
-  <span class="bar-track"><i style="width:37.84%"></i></span>
-  <span class="bar-val">14</span>
+  <a class="bar-name" href="...">k4rnportfolio</a>
+  <span class="bar-track"><i style="width:100.00%"></i></span>
+  <span class="bar-val">68.9 MB</span>
 </li>
 ```
 
 `<i>` carries a hard `width` percentage because the width *is* the data — it is
 not a decorative percentage that happens to look plausible. The validation
-harness asserts that the eight language counts sum to 37, that all fourteen
-widths fall in 0–100%, and that the language bars are sorted descending, so a
-hand-edited figure that drifts from reality fails the build rather than shipping.
+harness asserts the bucket counts sum to 37, that each language sits in one
+contiguous run, that all six bar widths fall in 0–100% and sort descending, and
+that each proportion bar's width matches the ratio written in its own caption,
+so a hand-edited figure that drifts from reality fails the build rather than
+shipping.
 
 ## Content
 
-Five bands, in order:
+A hero, then five bands, in order:
 
+0. **Lede** — the headline, the intro paragraph, and the 37-block unit chart
+   with its legend and four counted facts.
 1. **Work** — 20 projects, each with a description, a tech line, and a
    language / licence / stars line read from the API. Grouped into four
    categories.
-2. **Shape** — the counted figures: language distribution, six largest repos by
-   source size, licence split, documentation coverage.
+2. **Shape** — the inverted band: six largest repos by source size, plus
+   licence, documentation and topic coverage as proportion bars.
 3. **Index** — the remaining 37 public repositories in two columns, with
-   detected language and an `MIT` mark on the 15 that carry one.
-4. **About** — three paragraphs plus a four-row facts list.
-5. **Contact** — email with a copy button.
+   detected language and an `MIT` mark on the 15 that carry one. The same 37
+   blocks from the top, spelled out.
+4. **About** — a pull quote, two paragraphs, and a four-row facts list.
+5. **Contact** — the address set as display type, with a copy button.
 
 Claims on the page are verified against the GitHub API, straight from the
 accounts:
@@ -187,29 +228,39 @@ automatically. `feio.in` and `www.feio.in` are already attached.
 
 Checked in headless Chrome over the DevTools Protocol:
 
-- **Structure** — 169 assertions. No duplicate IDs, exactly one `h1`, every
+- **Structure** — 224 assertions. No duplicate IDs, exactly one `h1`, every
   in-page anchor resolves, every `target="_blank"` carries
   `rel="noopener noreferrer"`, one email, 37 repository rows, 20 described
   entries, 7 margin labels, 5 screen-reader `h2`s, 5 anchored sections.
-- **Figures** — 14 bars with explicit widths, language counts summing to 37, bars
-  sorted descending, all widths in range, the old `langbar` component gone, and
-  no image-based charts anywhere.
+- **Unit chart** — 37 blocks, each pointing at a distinct repository on one of
+  the two accounts, none of them an excluded claim repo, each with a title and
+  an `aria-label`; bucket counts 14/9/5/5/4 summing to 37; one contiguous run
+  per language.
+- **Figures** — 6 size bars with explicit widths sorted descending, 3
+  proportion bars whose widths match the ratio printed in their own caption,
+  the old `langbar` component gone, and no image-based charts anywhere.
 - **One theme** — asserted in both HTML and CSS: no `data-theme`, no
   `prefers-color-scheme` script, no toggle in markup or CSS, no `localStorage`
   in JS, exactly one `theme-color` meta, manifest matches the single palette.
+  The two inverted sections are asserted to be local token redeclarations
+  carrying no theme machinery.
 - **No trendy scaffolding** — the harness asserts the absence of the ledger
   panel, stat strip, badges, matrix, timeline, wordmark, star counts, grain
   field, cards, chips, rounded buttons, numbered section rules, scroll reveals,
   and every `TODO`.
-- **Render** — 75 assertions at 390 / 820 / 1440px: no console errors, no
+- **Render** — 99 assertions at 390 / 820 / 1440px: no console errors, no
   external requests, all 5 font faces load, no horizontal overflow, the margin
   column is left of the content when two-column and above it when stacked, body
-  copy resolves to Fraunces, all 14 bars have a non-zero rendered width, all 5
-  nav links on screen with no menu toggle, every work entry described,
-  clipboard actually holds the address.
-- **Contrast** — every visible text node passes WCAG AA on both paper tones.
-- **Print** — chrome hides, the grid re-forms as two columns, external URLs
-  are printed after their links.
+  copy resolves to Fraunces, 6 bars / 3 proportion bars / 37 unit blocks all
+  rendered with non-zero size, `body` still light while the band and colophon
+  invert, all 10 inverted text samples clearing AA, all 5 nav links on screen
+  with no menu toggle, every work entry described, clipboard actually holds the
+  address.
+- **Contrast** — every visible text node passes WCAG AA, including every text
+  node inside the inverted sections.
+- **Print** — chrome hides, the grid re-forms as two columns, inverted sections
+  print as light ink-on-white, unit blocks keep their outlines, and repository
+  and unit links print without an appended URL.
 - **Links** — all unique external URLs return 2xx/3xx.
 - **404** — 1 `h1`, no duplicate IDs, no theme control, clean at 390 / 768 /
   1440px, 0 console errors.
