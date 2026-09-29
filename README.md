@@ -43,8 +43,8 @@ grep -n "TODO" index.html
    - the hero `<h1>`, the lede paragraph, and the About section
    - `site.webmanifest` (`name`, `short_name`, `description`)
 
-2. **Email** — currently `tarkarnisha13@gmail.com`, appears in the contact card and
-   the `mailto:` link. Search for it in `index.html`.
+2. **Email** — set to `effestier@aol.com`. Change it in the contact card (the visible
+   text and the `mailto:` link) in `index.html`.
 
 3. **Résumé PDF** — drop your file at `resume/karan-resume.pdf` using exactly that
    filename, or change the `href` in the hero's "Download résumé" button.
