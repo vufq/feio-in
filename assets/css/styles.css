@@ -1,14 +1,16 @@
 /* =========================================================================
-   feio.in — a printed catalogue with counted figures.
+   feio.in — a dark catalogue with counted figures.
 
-   Structure: an asymmetric grid, a fixed margin column for section labels
-   and a main column for text. One theme, declared once. Fraunces for reading
-   (variable, with a real optical-size axis so display sizes are drawn at
-   display proportions), JetBrains Mono for labels and figures.
+   Structure: an asymmetric grid, a fixed margin column for metadata and a
+   main column for text, every band opened by a large display heading. One
+   theme, declared once: near-black paper, warm white ink, signal lime and
+   orange. Fraunces for reading (variable, with a real optical-size axis so
+   display sizes are drawn at display proportions), JetBrains Mono for labels
+   and figures.
 
-   The figures band and the colophon invert locally by re-declaring the same
+   The figures band inverts locally to a light slab by re-declaring the same
    tokens inside the section. That is a compositional device, not a second
-   theme: `color-scheme` stays light, `body` stays paper, and there is no
+   theme: `color-scheme` stays dark, `body` stays near-black, and there is no
    toggle, no persisted preference and no alternate stylesheet.
    ========================================================================= */
 
@@ -41,25 +43,25 @@
    TOKENS
    ------------------------------------------------------------------------- */
 :root {
-  --paper: #f6f4ee;
-  --paper-2: #eeeae0;
-  --ink: #171a1f;
-  --ink-2: #3c424d;
-  --ink-3: #545b67;
-  --ink-4: #646a73;
-  --line: #cdc7b9;
-  --line-soft: #e2ddd0;
-  --accent: #7a3d12;
-  --accent-2: #2f6114;
-  --fill: #ddd6c6;
-  --bar-bg: var(--paper-2);
+  --paper: #0d0f12;
+  --paper-2: #14171c;
+  --ink: #f0ede4;
+  --ink-2: #cfccc3;
+  --ink-3: #a8a49b;
+  --ink-4: #8f8b82;
+  --line: #2a2e35;
+  --line-soft: #1e2228;
+  --accent: #c8ff3d;
+  --accent-2: #ff7a45;
+  --fill: #f0ede4;
+  --bar-bg: #1b1f25;
 
   /* language buckets used by the unit chart */
-  --l-python: #171a1f;
-  --l-typescript: #7a3d12;
-  --l-html: #2f6114;
-  --l-other: #8a7020;
-  --l-none: #c4bdb0;
+  --l-python: #c8ff3d;
+  --l-typescript: #ff7a45;
+  --l-html: #56d4ff;
+  --l-other: #b78bff;
+  --l-none: #6b7280;
 
   --serif: "Fraunces", Georgia, "Times New Roman", serif;
   --mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
@@ -89,7 +91,7 @@
   --dur: 200ms;
   --ease-out: cubic-bezier(0.22, 0.61, 0.36, 1);
 
-  color-scheme: light;
+  color-scheme: dark;
 }
 
 /* Display sizes use the optical-size axis so the large type is drawn at
@@ -103,28 +105,36 @@
 }
 
 /* -------------------------------------------------------------------------
-   INVERTED SECTIONS — same tokens, re-declared locally.
+   INVERSION — same tokens, re-declared locally.
+
+   The page is dark, so the figures band flips to a light slab: the one large
+   field of warm paper on the site, which is where the counted numbers sit.
+   That is composition, not a second theme: `color-scheme` stays dark, `body`
+   stays near-black, and there is no toggle and no stored preference.
    ------------------------------------------------------------------------- */
-.band-invert,
-.foot-invert {
-  --paper: #171a1f;
-  --paper-2: #232830;
-  --ink: #f6f4ee;
-  --ink-2: #ddd8cc;
-  --ink-3: #c3beb3;
-  --ink-4: #a9a497;
-  --line: #3b414a;
-  --line-soft: #2b313a;
-  --accent: #e0956a;
-  --accent-2: #9ecb8b;
-  --fill: #d8d3c6;
-  --bar-bg: rgba(246, 244, 238, 0.13);
-  --l-python: #f6f4ee;
-  --l-typescript: #e0956a;
-  --l-html: #9ecb8b;
-  --l-other: #d6b463;
-  --l-none: #565c66;
+.band-invert {
+  --paper: #f0ede4;
+  --paper-2: #e6e2d7;
+  --ink: #0d0f12;
+  --ink-2: #2c2f36;
+  --ink-3: #474b54;
+  --ink-4: #5c616b;
+  --line: #c9c5bb;
+  --line-soft: #dcd8ce;
+  --accent: #4a6b00;
+  --accent-2: #c1440e;
+  --fill: #171a1f;
+  --bar-bg: #e2ded3;
+  --l-python: #2f4f00;
+  --l-typescript: #c1440e;
+  --l-html: #00668c;
+  --l-other: #5b3ea8;
+  --l-none: #8a8577;
   background: var(--paper);
+  color: var(--ink);
+}
+.foot-invert {
+  background: var(--paper-2);
   color: var(--ink);
 }
 
@@ -167,7 +177,7 @@ button { font: inherit; color: inherit; background: none; border: 0; }
 .skip {
   position: absolute; left: 0.5rem; top: 0.5rem; z-index: 20;
   padding: 0.55rem 0.9rem;
-  background: #171a1f; color: #f6f4ee;
+  background: var(--accent); color: var(--paper);
   font: 500 var(--step--1)/1 var(--mono);
   text-decoration: none;
   transform: translateY(-160%);
@@ -360,12 +370,31 @@ a.unit:focus-visible { outline-color: var(--accent); }
 }
 .band-last { border-bottom: 1px solid var(--line-soft); }
 .band-body { max-width: 48rem; }
-.band-intro {
-  max-width: var(--measure);
-  margin-bottom: 2rem;
-  color: var(--ink-2);
-  text-wrap: pretty;
-}
+  .band-intro {
+    max-width: var(--measure);
+    margin-bottom: 2rem;
+    color: var(--ink-2);
+    text-wrap: pretty;
+  }
+
+  /* visible section heading — the margin label is metadata, this is the title */
+  .band-h {
+    font-size: var(--step-3);
+    line-height: var(--leading-tight);
+    font-weight: 400;
+    letter-spacing: -0.03em;
+    font-variation-settings: "SOFT" 0, "WONK" 1, "opsz" 120;
+    max-width: 24ch;
+    text-wrap: balance;
+    margin-bottom: 1.5rem;
+  }
+  .band-h::after {
+    content: ""; display: block;
+    width: clamp(3rem, 8vw, 5.5rem); height: 3px;
+    background: var(--accent);
+    margin-top: 0.9rem;
+  }
+
 
 .sub {
   margin-top: 2.5rem;
@@ -654,7 +683,7 @@ a.bar-name:hover { color: var(--accent); text-decoration-color: var(--accent); }
   padding-block: clamp(2.25rem, 5.5vh, 3.25rem);
   background: var(--paper-2);
 }
-.foot-invert { margin-top: 0; background: var(--paper); }
+.foot-invert { margin-top: 0; }
 .foot-body { max-width: var(--measure); }
 .foot-body p { color: var(--ink-3); text-wrap: pretty; }
 .foot-fine {
@@ -715,6 +744,7 @@ a.bar-name:hover { color: var(--accent); text-decoration-color: var(--accent); }
    ------------------------------------------------------------------------- */
 @media print {
   :root {
+    color-scheme: light;
     --paper: #fff; --paper-2: #fff;
     --ink: #000; --ink-2: #222; --ink-3: #444; --ink-4: #555;
     --line: #bbb; --line-soft: #ddd; --accent: #6a3410; --accent-2: #244d0e;

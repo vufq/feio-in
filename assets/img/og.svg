@@ -1,62 +1,62 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
-  <rect width="1200" height="630" fill="#f6f4ee"/>
-  <rect y="0" width="1200" height="4" fill="#171a1f"/>
+  <rect width="1200" height="630" fill="#0d0f12"/>
+  <rect y="0" width="1200" height="4" fill="#c8ff3d"/>
 
-  <text x="88" y="84" font-family="ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace" font-size="21" fill="#646a73" letter-spacing="5">KARAN</text>
-  <line x1="88" y1="108" x2="1112" y2="108" stroke="#171a1f" stroke-opacity=".18" stroke-width="1.5"/>
+  <text x="88" y="84" font-family="ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace" font-size="21" fill="#8f8b82" letter-spacing="5">KARAN</text>
+  <line x1="88" y1="108" x2="1112" y2="108" stroke="#f0ede4" stroke-opacity=".22" stroke-width="1.5"/>
 
-  <text x="88" y="216" font-family="ui-serif, Georgia, 'Times New Roman', serif" font-size="74" fill="#171a1f" letter-spacing="-2.5">I build the tools</text>
-  <text x="88" y="296" font-family="ui-serif, Georgia, 'Times New Roman', serif" font-size="74" fill="#171a1f" letter-spacing="-2.5">I wish <tspan font-style="italic" fill="#7a3d12">existed</tspan>.</text>
+  <text x="88" y="216" font-family="ui-serif, Georgia, 'Times New Roman', serif" font-size="74" fill="#f0ede4" letter-spacing="-2.5">I build the tools</text>
+  <text x="88" y="296" font-family="ui-serif, Georgia, 'Times New Roman', serif" font-size="74" fill="#f0ede4" letter-spacing="-2.5">I wish <tspan font-style="italic" fill="#c8ff3d">existed</tspan>.</text>
 
-  <line x1="88" y1="344" x2="1112" y2="344" stroke="#171a1f" stroke-opacity=".18" stroke-width="1.5"/>
-  <text x="88" y="372" font-family="ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace" font-size="17" fill="#646a73" letter-spacing="3">37 REPOSITORIES, ONE BLOCK EACH</text>
+  <line x1="88" y1="344" x2="1112" y2="344" stroke="#f0ede4" stroke-opacity=".22" stroke-width="1.5"/>
+  <text x="88" y="372" font-family="ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace" font-size="17" fill="#8f8b82" letter-spacing="3">37 REPOSITORIES, ONE BLOCK EACH</text>
 
   <g>
-    <rect x="88" y="386" width="26" height="26" fill="#171a1f"/>
-    <rect x="122" y="386" width="26" height="26" fill="#171a1f"/>
-    <rect x="156" y="386" width="26" height="26" fill="#171a1f"/>
-    <rect x="190" y="386" width="26" height="26" fill="#171a1f"/>
-    <rect x="224" y="386" width="26" height="26" fill="#171a1f"/>
-    <rect x="258" y="386" width="26" height="26" fill="#171a1f"/>
-    <rect x="292" y="386" width="26" height="26" fill="#171a1f"/>
-    <rect x="326" y="386" width="26" height="26" fill="#171a1f"/>
-    <rect x="360" y="386" width="26" height="26" fill="#171a1f"/>
-    <rect x="394" y="386" width="26" height="26" fill="#171a1f"/>
-    <rect x="428" y="386" width="26" height="26" fill="#171a1f"/>
-    <rect x="462" y="386" width="26" height="26" fill="#171a1f"/>
-    <rect x="496" y="386" width="26" height="26" fill="#171a1f"/>
-    <rect x="530" y="386" width="26" height="26" fill="#171a1f"/>
-    <rect x="564" y="386" width="26" height="26" fill="#7a3d12"/>
-    <rect x="598" y="386" width="26" height="26" fill="#7a3d12"/>
-    <rect x="632" y="386" width="26" height="26" fill="#7a3d12"/>
-    <rect x="666" y="386" width="26" height="26" fill="#7a3d12"/>
-    <rect x="700" y="386" width="26" height="26" fill="#7a3d12"/>
-    <rect x="734" y="386" width="26" height="26" fill="#7a3d12"/>
-    <rect x="88" y="420" width="26" height="26" fill="#7a3d12"/>
-    <rect x="122" y="420" width="26" height="26" fill="#7a3d12"/>
-    <rect x="156" y="420" width="26" height="26" fill="#7a3d12"/>
-    <rect x="190" y="420" width="26" height="26" fill="#2f6114"/>
-    <rect x="224" y="420" width="26" height="26" fill="#2f6114"/>
-    <rect x="258" y="420" width="26" height="26" fill="#2f6114"/>
-    <rect x="292" y="420" width="26" height="26" fill="#2f6114"/>
-    <rect x="326" y="420" width="26" height="26" fill="#2f6114"/>
-    <rect x="360" y="420" width="26" height="26" fill="#8a7020"/>
-    <rect x="394" y="420" width="26" height="26" fill="#8a7020"/>
-    <rect x="428" y="420" width="26" height="26" fill="#8a7020"/>
-    <rect x="462" y="420" width="26" height="26" fill="#8a7020"/>
-    <rect x="496" y="420" width="26" height="26" fill="#8a7020"/>
-    <rect x="530" y="420" width="26" height="26" fill="#c4bdb0"/>
-    <rect x="564" y="420" width="26" height="26" fill="#c4bdb0"/>
-    <rect x="598" y="420" width="26" height="26" fill="#c4bdb0"/>
-    <rect x="632" y="420" width="26" height="26" fill="#c4bdb0"/>
+    <rect x="88" y="386" width="26" height="26" fill="#c8ff3d"/>
+    <rect x="122" y="386" width="26" height="26" fill="#c8ff3d"/>
+    <rect x="156" y="386" width="26" height="26" fill="#c8ff3d"/>
+    <rect x="190" y="386" width="26" height="26" fill="#c8ff3d"/>
+    <rect x="224" y="386" width="26" height="26" fill="#c8ff3d"/>
+    <rect x="258" y="386" width="26" height="26" fill="#c8ff3d"/>
+    <rect x="292" y="386" width="26" height="26" fill="#c8ff3d"/>
+    <rect x="326" y="386" width="26" height="26" fill="#c8ff3d"/>
+    <rect x="360" y="386" width="26" height="26" fill="#c8ff3d"/>
+    <rect x="394" y="386" width="26" height="26" fill="#c8ff3d"/>
+    <rect x="428" y="386" width="26" height="26" fill="#c8ff3d"/>
+    <rect x="462" y="386" width="26" height="26" fill="#c8ff3d"/>
+    <rect x="496" y="386" width="26" height="26" fill="#c8ff3d"/>
+    <rect x="530" y="386" width="26" height="26" fill="#c8ff3d"/>
+    <rect x="564" y="386" width="26" height="26" fill="#ff7a45"/>
+    <rect x="598" y="386" width="26" height="26" fill="#ff7a45"/>
+    <rect x="632" y="386" width="26" height="26" fill="#ff7a45"/>
+    <rect x="666" y="386" width="26" height="26" fill="#ff7a45"/>
+    <rect x="700" y="386" width="26" height="26" fill="#ff7a45"/>
+    <rect x="734" y="386" width="26" height="26" fill="#ff7a45"/>
+    <rect x="88" y="420" width="26" height="26" fill="#ff7a45"/>
+    <rect x="122" y="420" width="26" height="26" fill="#ff7a45"/>
+    <rect x="156" y="420" width="26" height="26" fill="#ff7a45"/>
+    <rect x="190" y="420" width="26" height="26" fill="#56d4ff"/>
+    <rect x="224" y="420" width="26" height="26" fill="#56d4ff"/>
+    <rect x="258" y="420" width="26" height="26" fill="#56d4ff"/>
+    <rect x="292" y="420" width="26" height="26" fill="#56d4ff"/>
+    <rect x="326" y="420" width="26" height="26" fill="#56d4ff"/>
+    <rect x="360" y="420" width="26" height="26" fill="#b78bff"/>
+    <rect x="394" y="420" width="26" height="26" fill="#b78bff"/>
+    <rect x="428" y="420" width="26" height="26" fill="#b78bff"/>
+    <rect x="462" y="420" width="26" height="26" fill="#b78bff"/>
+    <rect x="496" y="420" width="26" height="26" fill="#b78bff"/>
+    <rect x="530" y="420" width="26" height="26" fill="#6b7280"/>
+    <rect x="564" y="420" width="26" height="26" fill="#6b7280"/>
+    <rect x="598" y="420" width="26" height="26" fill="#6b7280"/>
+    <rect x="632" y="420" width="26" height="26" fill="#6b7280"/>
   </g>
 
-  <g font-family="ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace" font-size="17" fill="#3c424d">
+  <g font-family="ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace" font-size="17" fill="#cfccc3">
     <text x="88" y="480">PYTHON 14 &#183; TYPESCRIPT 9 &#183; HTML 5 &#183; OTHER 5 &#183; NONE 4</text>
-    <text x="88" y="506" fill="#646a73">15 MIT &#183; 34 described &#183; 28 @RootBugs + 9 @vufq</text>
+    <text x="88" y="506" fill="#8f8b82">15 MIT &#183; 34 described &#183; 28 @RootBugs + 9 @vufq</text>
   </g>
 
-  <line x1="88" y1="566" x2="1112" y2="566" stroke="#171a1f" stroke-opacity=".18" stroke-width="1.5"/>
-  <text x="88" y="600" font-family="ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace" font-size="18" fill="#646a73">security research &#183; LLM infrastructure &#183; dev tools</text>
-  <text x="1112" y="600" text-anchor="end" font-family="ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace" font-size="18" fill="#7a3d12">feio.in</text>
+  <line x1="88" y1="566" x2="1112" y2="566" stroke="#f0ede4" stroke-opacity=".22" stroke-width="1.5"/>
+  <text x="88" y="600" font-family="ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace" font-size="18" fill="#8f8b82">security research &#183; LLM infrastructure &#183; dev tools</text>
+  <text x="1112" y="600" text-anchor="end" font-family="ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace" font-size="18" fill="#c8ff3d">feio.in</text>
 </svg>

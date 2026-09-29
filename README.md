@@ -6,20 +6,22 @@ uploading files.
 
 ## The design in one paragraph
 
-A printed catalogue with counted figures, opened by a unit chart. The page is
+A dark catalogue with counted figures, opened by a unit chart. The page is
 an asymmetric two-column grid: a fixed narrow margin carries small monospace
-section labels, and the main column carries continuous text. Body copy is
-**Fraunces**, a variable serif, set much larger than a conventional body face —
-the ledo runs to 6.4rem on a display optical size rather than being scaled-up
-paragraph text.
+metadata for each section, and the main column carries continuous text —
+every band opening on a large display heading with a short rule under it.
+Body copy is **Fraunces**, a variable serif, set much larger than a
+conventional body face — the lede runs to 6.4rem on a display optical size
+rather than being scaled-up paragraph text.
 
-There is exactly **one theme** — warm paper, near-black ink, one rust accent,
-one green for licence marks — because the content is prose and a catalogue
-prints on paper. Two sections invert locally (the figures band and the
-colophon) by re-declaring the same tokens inside the element. That is
-composition, not a second theme: `color-scheme` stays `light`, `body` stays
-paper, and there is no toggle, no stored preference and no alternate
-stylesheet. The render suite asserts exactly that on every width.
+There is exactly **one theme** — near-black paper, warm white ink, signal
+lime and orange — because the content is a dense reference and that is how
+dense reference material is read now. The figures band inverts locally to a
+light slab by re-declaring the same tokens inside the element: one large
+field of warm paper on the whole site, which is where the counted numbers
+sit. That is composition, not a second theme: `color-scheme` stays `dark`,
+`body` stays near-black, and there is no toggle, no stored preference and no
+alternate stylesheet. The render suite asserts exactly that on every width.
 
 No dashboard widgets, no cards, no pills, no badges, no gradients, no
 animation beyond a 120–200ms underline, lift and colour transition on hover.
@@ -89,11 +91,11 @@ Tokens live at the top of `styles.css`; every component consumes them.
 | Geometry | `--shell` (74rem), `--measure` (33rem), `--margin-col` (10.5rem), `--gutter` |
 | Colour | `--paper`, `--paper-2`, `--ink`, `--ink-2`/`-3`/`-4`, `--line`, `--line-soft`, `--accent`, `--accent-2`, `--fill` |
 
-**One theme.** `color-scheme: light` and that is the whole story. There is no
+**One theme.** `color-scheme: dark` and that is the whole story. There is no
 `data-theme` attribute, no toggle, no `localStorage`, and no
 `prefers-color-scheme` script — which also means no flash of the wrong palette
-to guard against. Every ink value clears WCAG AA against **both** paper tones,
-including `--ink-4` on the darker footer.
+to guard against. Every ink value clears WCAG AA against the near-black page,
+and the light-slab tokens are checked separately against that slab.
 
 ### The grid
 
@@ -108,9 +110,10 @@ including `--ink-4` on the darker footer.
 
 Below 820px the margin column stops being a column: the grid becomes one track
 and the label sits above its content. The label is always `<p>`, never a
-heading, so the document outline stays one `h1` plus five `h2`s — each band
-carries an `.sr-only` `h2` for screen readers and a visible margin label for
-everyone else.
+heading, so the outline stays one `h1` plus five `h2`s — each band opens on a
+visible `<h2 class="band-h">` in display type with a short accent rule under
+it, while the margin `<p>` carries metadata instead ("20 projects", "37
+repositories") so the two never say the same thing twice.
 
 ### The unit chart
 
@@ -228,10 +231,10 @@ automatically. `feio.in` and `www.feio.in` are already attached.
 
 Checked in headless Chrome over the DevTools Protocol:
 
-- **Structure** — 224 assertions. No duplicate IDs, exactly one `h1`, every
+- **Structure** — 227 assertions. No duplicate IDs, exactly one `h1`, every
   in-page anchor resolves, every `target="_blank"` carries
   `rel="noopener noreferrer"`, one email, 37 repository rows, 20 described
-  entries, 7 margin labels, 5 screen-reader `h2`s, 5 anchored sections.
+  entries, 7 margin labels, 5 visible `h2.band-h`s, 5 anchored sections.
 - **Unit chart** — 37 blocks, each pointing at a distinct repository on one of
   the two accounts, none of them an excluded claim repo, each with a title and
   an `aria-label`; bucket counts 14/9/5/5/4 summing to 37; one contiguous run
@@ -252,10 +255,10 @@ Checked in headless Chrome over the DevTools Protocol:
   external requests, all 5 font faces load, no horizontal overflow, the margin
   column is left of the content when two-column and above it when stacked, body
   copy resolves to Fraunces, 6 bars / 3 proportion bars / 37 unit blocks all
-  rendered with non-zero size, `body` still light while the band and colophon
-  invert, all 10 inverted text samples clearing AA, all 5 nav links on screen
-  with no menu toggle, every work entry described, clipboard actually holds the
-  address.
+  rendered with non-zero size, `body` still dark while the band flips to its
+  light slab and the colophon lifts, all 10 inverted text samples clearing AA,
+  all 5 nav links on screen with no menu toggle, every work entry described,
+  clipboard actually holds the address.
 - **Contrast** — every visible text node passes WCAG AA, including every text
   node inside the inverted sections.
 - **Print** — chrome hides, the grid re-forms as two columns, inverted sections
