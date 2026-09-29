@@ -1,35 +1,45 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en" data-theme="midnight">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <title>Karan — Security Research, AI Tooling &amp; Open Source</title>
-<meta name="description" content="Karan builds security research tooling, LLM infrastructure and open-source developer tools. 49 public projects across Python, TypeScript, Rust and PowerShell.">
+<meta name="description" content="Karan builds security research tooling, LLM infrastructure and open-source developer tools. 45 public repositories across Python, TypeScript, Rust and PowerShell.">
 <meta name="author" content="Karan">
-<meta name="theme-color" content="#08090c" media="(prefers-color-scheme: dark)">
-<meta name="theme-color" content="#fbfaf7" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0a1428" id="metaTheme">
 <link rel="canonical" href="https://feio.in/">
 
 <meta property="og:type" content="profile">
 <meta property="og:url" content="https://feio.in/">
 <meta property="og:title" content="Karan — Security Research, AI Tooling &amp; Open Source">
-<meta property="og:description" content="Security research tooling, LLM infrastructure and open-source developer tools. 49 public projects.">
-<meta property="og:image" content="https://feio.in/assets/img/og.svg">
+<meta property="og:description" content="Security research tooling, LLM infrastructure and open-source developer tools. 45 public repositories.">
+<meta property="og:image" content="https://feio.in/assets/img/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Karan — Security tools that actually finish the job.">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Karan — Security Research, AI Tooling &amp; Open Source">
+<meta name="twitter:title" content="Karan — Security Research, AI Tooling & Open Source">
 <meta name="twitter:description" content="Security research tooling, LLM infrastructure and open-source developer tools.">
-<meta name="twitter:image" content="https://feio.in/assets/img/og.svg">
+<meta name="twitter:image" content="https://feio.in/assets/img/og.png">
 
 <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/assets/img/favicon.svg">
 <link rel="manifest" href="/site.webmanifest">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,400..700;1,14..32,400&family=JetBrains+Mono:wght@400;500&family=Newsreader:ital,opsz,wght@1,6..72,400&display=swap">
+<link rel="preload" href="/assets/fonts/SpaceGrotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/Inter-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/assets/css/styles.css">
 <script>
-(function(){try{var t=localStorage.getItem("theme");if(t==="light"||(!t&&window.matchMedia("(prefers-color-scheme: light)").matches)){document.documentElement.setAttribute("data-theme","light");}}catch(e){}})();
+(function(){
+  try{
+    var saved = localStorage.getItem("feio-theme");
+    var valid = ["midnight","day","aurora","ocean","ember","forest","neon","espresso"];
+    if (valid.indexOf(saved) > -1) { document.documentElement.setAttribute("data-theme", saved); return; }
+    if (window.matchMedia("(prefers-color-scheme: light)").matches) {
+      document.documentElement.setAttribute("data-theme", "day");
+    }
+  }catch(e){}
+})();
 </script>
 
 <script type="application/ld+json">
@@ -80,12 +90,66 @@
 <body>
 <a class="skip" href="#main">Skip to content</a>
 
+<div class="bg" aria-hidden="true">
+  <div class="bg-aurora">
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="blob blob-3"></div>
+  </div>
+  <div class="bg-grid"></div>
+  <div class="bg-grain"></div>
+</div>
+
+<div class="progress" id="progress" role="presentation"></div>
+
 <header class="site-head" id="top" data-scrolled="false">
   <div class="wrap head-inner">
     <a class="brand" href="#top">
-      <span class="brand-mark" aria-hidden="true">~/karan</span>
+      <span class="brand-mark" aria-hidden="true">K</span>
       <span class="brand-text">Karan</span>
     </a>
+
+    <div class="theme-picker">
+      <button class="theme-btn" id="themeBtn" aria-expanded="false" aria-haspopup="true" aria-controls="themeMenu">
+        <span class="swatch-live" aria-hidden="true"></span>
+        <span class="label" id="themeLabel">Midnight</span>
+        <span class="theme-caret" aria-hidden="true"></span>
+      </button>
+      <div class="theme-menu" id="themeMenu" role="radiogroup" aria-label="Colour theme" data-open="false">
+        <button class="theme-opt" role="radio" aria-checked="true" data-set-theme="midnight">
+          <span class="sw" style="background:linear-gradient(135deg,#2b73b9,#667fd1)"></span>Midnight
+          <span class="check" aria-hidden="true">✓</span>
+        </button>
+        <button class="theme-opt" role="radio" aria-checked="false" data-set-theme="day">
+          <span class="sw" style="background:linear-gradient(135deg,#123b78,#667fd1)"></span>Day
+          <span class="check" aria-hidden="true">✓</span>
+        </button>
+        <button class="theme-opt" role="radio" aria-checked="false" data-set-theme="aurora">
+          <span class="sw" style="background:linear-gradient(135deg,#7c3aed,#22d3ee)"></span>Aurora
+          <span class="check" aria-hidden="true">✓</span>
+        </button>
+        <button class="theme-opt" role="radio" aria-checked="false" data-set-theme="ocean">
+          <span class="sw" style="background:linear-gradient(135deg,#0e7490,#22d3ee)"></span>Ocean
+          <span class="check" aria-hidden="true">✓</span>
+        </button>
+        <button class="theme-opt" role="radio" aria-checked="false" data-set-theme="ember">
+          <span class="sw" style="background:linear-gradient(135deg,#b45309,#fb923c)"></span>Ember
+          <span class="check" aria-hidden="true">✓</span>
+        </button>
+        <button class="theme-opt" role="radio" aria-checked="false" data-set-theme="forest">
+          <span class="sw" style="background:linear-gradient(135deg,#15803d,#84cc16)"></span>Forest
+          <span class="check" aria-hidden="true">✓</span>
+        </button>
+        <button class="theme-opt" role="radio" aria-checked="false" data-set-theme="neon">
+          <span class="sw" style="background:linear-gradient(135deg,#a21caf,#f472b6)"></span>Neon
+          <span class="check" aria-hidden="true">✓</span>
+        </button>
+        <button class="theme-opt" role="radio" aria-checked="false" data-set-theme="espresso">
+          <span class="sw" style="background:linear-gradient(135deg,#8a5a2b,#d6a35c)"></span>Espresso
+          <span class="check" aria-hidden="true">✓</span>
+        </button>
+      </div>
+    </div>
 
     <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="primaryNav" aria-label="Open menu">
       <span class="bar"></span><span class="bar"></span><span class="bar"></span>
@@ -95,14 +159,10 @@
       <ul>
         <li><a href="#work">Work</a></li>
         <li><a href="#stack">Stack</a></li>
+        <li><a href="#lab">Lab</a></li>
         <li><a href="#about">About</a></li>
-        <li><a href="#background">Background</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
-      <button class="theme-toggle" id="themeToggle" aria-label="Toggle colour theme">
-        <svg class="ico-sun" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><g stroke-linecap="round"><path d="M12 2.6v2.4M12 19v2.4M2.6 12h2.4M19 12h2.4M5.4 5.4l1.7 1.7M16.9 16.9l1.7 1.7M18.6 5.4l-1.7 1.7M7.1 16.9l-1.7 1.7"/></g></svg>
-        <svg class="ico-moon" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.2A8.4 8.4 0 0 1 9.8 4 8.4 8.4 0 1 0 20 14.2Z"/></svg>
-      </button>
     </nav>
   </div>
 </header>
@@ -110,61 +170,109 @@
 <main id="main">
 
   <!-- ============ HERO ============ -->
-  <section class="hero field">
-    <div class="wrap hero-grid">
-      <div class="hero-lead">
-        <p class="eyebrow reveal">security research · llm infrastructure · open source</p>
+  <section class="hero">
+    <div class="stars" id="stars" aria-hidden="true"></div>
 
-        <h1 class="reveal">
-          <span class="line"><span style="--d:60ms">I build the tools</span></span>
-          <span class="line"><span style="--d:150ms">I wish <em>existed</em>.</span></span>
+    <div class="wrap hero-grid">
+      <div>
+        <p class="eyebrow reveal">
+          <span class="pulse" aria-hidden="true"></span>
+          security research · llm infrastructure · open source
+        </p>
+
+        <h1 class="reveal" style="--rd:80ms">
+          <span class="ln">Security tools that</span>
+          <span class="ln"><span class="grad">actually finish</span> the job.</span>
         </h1>
 
         <!-- TODO: rewrite as your own words -->
-        <p class="lede reveal" style="--rd:120ms">
-          Audit scanners that produce reports a human can actually read. Model compression
-          that runs on a laptop. Gateways that route around flaky free providers. Small CLIs
-          that remove a step from someone's day. <strong>49 public repositories, all MIT.</strong>
+        <p class="hero-lede reveal" style="--rd:160ms">
+          A 14-phase auditor that hands you an HTML report instead of raw output. Model
+          compression that runs on a laptop, not a GPU rig. Gateways that route around
+          flaky free providers. Small CLIs that delete a step from someone's day.
+          <strong>45 public repositories, 15 of them MIT-licensed.</strong>
         </p>
 
-        <div class="cta reveal" style="--rd:180ms">
+        <div class="hero-cta reveal" style="--rd:220ms">
           <a class="btn btn-primary" href="#work">Read the work</a>
           <a class="btn btn-ghost" href="https://github.com/RootBugs" target="_blank" rel="noopener noreferrer">
             @RootBugs <span class="ext" aria-hidden="true">↗</span>
           </a>
-          <a class="btn btn-ghost" href="#contact">Email</a>
+          <a class="btn btn-ghost" href="#contact">Email me</a>
         </div>
 
-        <ul class="hero-meta reveal" style="--rd:240ms">
-          <li><strong>49</strong> public repos</li>
-          <li><strong>Python</strong> · <strong>TypeScript</strong> · <strong>Rust</strong> · <strong>PowerShell</strong></li>
-          <li><strong>28</strong> + <strong>21</strong> across two accounts</li>
+        <ul class="hero-trust reveal" style="--rd:280ms">
+          <li><strong>45</strong> public repos</li>
+          <li><strong>8</strong> languages</li>
+          <li>Hand-written HTML, CSS &amp; vanilla JS</li>
+          <li>No trackers, no build step</li>
         </ul>
       </div>
 
-      <div class="hero-panel">
-        <div class="term reveal" style="--rd:300ms">
-          <div class="term-bar">
-            <span class="term-dot" aria-hidden="true"></span>
-            <span class="term-dot" aria-hidden="true"></span>
-            <span class="term-dot" aria-hidden="true"></span>
-            <span class="term-title">consolebugs — audit</span>
+      <div class="mockup glass grad-edge reveal" style="--rd:340ms" id="mockup">
+        <div class="mockup-bar" aria-hidden="true">
+          <i></i><i></i><i></i>
+          <span class="url">github.com/RootBugs</span>
+        </div>
+
+        <div class="panes">
+          <div class="pane">
+            <p class="pane-tag"><span class="dot" aria-hidden="true"></span>Security</p>
+            <p class="pane-name">consolebugs</p>
+            <p class="pane-desc">14-phase PowerShell web auditor: DNS, TLS, headers, ports, injection, CORS, fingerprinting.</p>
+            <p class="pane-lang"><span class="dot" aria-hidden="true"></span>PowerShell</p>
+            <p class="pane-metric"><b>14</b> phases</p>
           </div>
-          <div class="term-body" id="termBody">
-            <span class="term-line term-cmd" data-anim style="--i:0">consolebugs --audit https://kwen.in</span>
-            <span class="term-line term-ok" data-anim style="--i:1">dns <span class="k">ok</span> · 4 records · 0 dangling</span>
-            <span class="term-line term-ok" data-anim style="--i:2">tls <span class="k">tls1.3</span> · h2 · hsts</span>
-            <span class="term-line term-warn" data-anim style="--i:3">headers <span class="k">3</span> findings</span>
-            <span class="term-line term-ok" data-anim style="--i:4">ports <span class="k">filtered</span> · 22,443 open</span>
-            <span class="term-line term-warn" data-anim style="--i:5">injection <span class="k">2</span> candidate params</span>
-            <span class="term-line term-warn" data-anim style="--i:6">cors <span class="k">1</span> misconfiguration</span>
-            <span class="term-line term-ok" data-anim style="--i:7">report <span class="k">audit-4f2a.html</span></span>
-            <span class="term-line" data-anim style="--i:8;margin-top:.6rem">7 phases · 31 checks · 0.9s <span class="term-caret" aria-hidden="true"></span></span>
+          <div class="pane">
+            <p class="pane-tag"><span class="dot" aria-hidden="true"></span>Rust</p>
+            <p class="pane-name">deepscrape</p>
+            <p class="pane-desc">AI-driven CLI that turns any website into a command-line interface.</p>
+            <p class="pane-lang"><span class="dot" aria-hidden="true"></span>Rust</p>
+            <p class="pane-metric"><b>1</b> command, whole site</p>
+          </div>
+          <div class="pane">
+            <p class="pane-tag"><span class="dot" aria-hidden="true"></span>AI infra</p>
+            <p class="pane-name">BasicLLM</p>
+            <p class="pane-desc">OpenAI-compatible gateway with UCB1 bandit routing, circuit breakers and sticky sessions.</p>
+            <p class="pane-lang"><span class="dot" aria-hidden="true"></span>TypeScript</p>
+            <p class="pane-metric"><b>20+</b> providers</p>
+          </div>
+          <div class="pane">
+            <p class="pane-tag"><span class="dot" aria-hidden="true"></span>Models</p>
+            <p class="pane-name">slimweights</p>
+            <p class="pane-desc">Compresses GGUF weights without losing usable quality. Q2_K through Q8_0.</p>
+            <p class="pane-lang"><span class="dot" aria-hidden="true"></span>Python</p>
+            <p class="pane-metric"><b>0</b> GPUs required</p>
           </div>
         </div>
-        <p class="mono reveal" style="--rd:340ms;margin-top:.9rem;color:var(--ink-4)">
-          Real output from <a href="https://github.com/RootBugs/consolebugs" target="_blank" rel="noopener noreferrer" style="border-bottom:1px solid var(--line-hard)">RootBugs/consolebugs</a>.
-        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ STATS ============ -->
+  <section class="section" style="padding-top:0">
+    <div class="wrap">
+      <div class="stats">
+        <div class="stat glass-lite reveal">
+          <b data-count="45">0</b>
+          <span>Public repositories</span>
+          <em>28 RootBugs · 17 vufq</em>
+        </div>
+        <div class="stat glass-lite reveal" style="--rd:80ms">
+          <b data-count="8">0</b>
+          <span>Languages in use</span>
+          <em>python · typescript · rust</em>
+        </div>
+        <div class="stat glass-lite reveal" style="--rd:160ms">
+          <b data-count="40" data-suffix="+">0</b>
+          <span>Security checks shipped</span>
+          <em>audit + injection + TLS</em>
+        </div>
+        <div class="stat glass-lite reveal" style="--rd:240ms">
+          <b data-count="7" data-suffix="M+">0</b>
+          <span>Books indexed</span>
+          <em>feio digital library</em>
+        </div>
       </div>
     </div>
   </section>
@@ -172,7 +280,18 @@
   <!-- ============ MARQUEE ============ -->
   <div class="marquee" aria-hidden="true">
     <div class="marquee-track" id="marqueeTrack">
-      <span>security research</span><span>LLM infrastructure</span><span>GGUF quantisation</span><span>QLoRA</span><span>attack surface</span><span>OpenAI-compatible routing</span><span>Rust CLIs</span><span>web scraping</span><span>coding agents</span><span>DNS &amp; TLS analysis</span><span>self-hosted APIs</span><span>PowerShell</span>
+      <span>security research</span>
+      <span>LLM infrastructure</span>
+      <span>GGUF quantisation</span>
+      <span>QLoRA finetuning</span>
+      <span>attack surface</span>
+      <span>OpenAI-compatible routing</span>
+      <span>Rust CLIs</span>
+      <span>web scraping</span>
+      <span>coding agents</span>
+      <span>DNS &amp; TLS analysis</span>
+      <span>self-hosted APIs</span>
+      <span>circuit breakers</span>
     </div>
   </div>
 
@@ -183,187 +302,321 @@
         <span class="sec-num" aria-hidden="true">01</span>
         <h2 class="sec-title">Work</h2>
         <span class="sec-rule" aria-hidden="true"></span>
-        <span class="sec-note">16 projects</span>
+        <span class="sec-note">18 of 45 highlighted</span>
       </div>
 
-      <h3 class="group-label reveal">Security research</h3>
-      <ol class="index">
-        <li>
-          <a class="row reveal" href="https://github.com/RootBugs/consolebugs" target="_blank" rel="noopener noreferrer">
-            <span class="row-num" aria-hidden="true">01</span>
-            <span class="row-title">consolebugs</span>
-            <span class="row-desc">A 14-phase web security auditor covering DNS, SSL, headers, port scanning, injection, CORS and technology fingerprinting — then generates a formal HTML audit report you can hand to someone.</span>
-            <span class="row-tech">PowerShell · Recon · Reporting</span>
-            <span class="row-go" aria-hidden="true">↗</span>
-          </a>
-        </li>
-        <li>
-          <a class="row reveal" href="https://github.com/vufq/threatlens" target="_blank" rel="noopener noreferrer">
-            <span class="row-num" aria-hidden="true">02</span>
-            <span class="row-title">ThreatLens</span>
-            <span class="row-desc">Shows a system through an attacker's eyes — a hacker-perspective analysis tool for finding exposure before someone else does.</span>
-            <span class="row-tech">Python · Security</span>
-            <span class="row-go" aria-hidden="true">↗</span>
-          </a>
-        </li>
-        <li>
-          <a class="row reveal" href="https://github.com/RootBugs/lineage" target="_blank" rel="noopener noreferrer">
-            <span class="row-num" aria-hidden="true">03</span>
-            <span class="row-title">Lineage</span>
-            <span class="row-desc">Git provenance and code-similarity engine. Traces every line back to its origin, detects cross-repository code copying, and measures structural similarity between projects.</span>
-            <span class="row-tech">Python · Git · Forensics</span>
-            <span class="row-go" aria-hidden="true">↗</span>
-          </a>
-        </li>
-        <li>
-          <a class="row reveal" href="https://github.com/RootBugs/websiteinjectiontester" target="_blank" rel="noopener noreferrer">
-            <span class="row-num" aria-hidden="true">04</span>
-            <span class="row-title">websiteinjectiontester</span>
-            <span class="row-desc">Whitehat web scanner that fuzzes URL parameters and analyses HTML forms to detect SQL injection and XSS automatically.</span>
-            <span class="row-tech">Python · SQLi · XSS</span>
-            <span class="row-go" aria-hidden="true">↗</span>
-          </a>
-        </li>
-      </ol>
+      <p class="sec-lede reveal">
+        Most of these started because I needed the tool to exist, then kept going because
+        other people needed it too. Everything is public and permissively licensed.
+      </p>
 
-      <h3 class="group-label reveal">AI &amp; LLM infrastructure</h3>
-      <ol class="index">
-        <li>
-          <a class="row reveal" href="https://github.com/RootBugs/prism" target="_blank" rel="noopener noreferrer">
-            <span class="row-num" aria-hidden="true">05</span>
-            <span class="row-title">PRISM</span>
-            <span class="row-desc">Modular AI research proxy: a 19-layer prompt engine with 8-level escalation, obfuscation, multi-provider routing, a plugin system and its own CLI.</span>
-            <span class="row-tech">TypeScript · Bun · Proxy</span>
-            <span class="row-go" aria-hidden="true">↗</span>
-          </a>
-        </li>
-        <li>
-          <a class="row reveal" href="https://github.com/RootBugs/BasicLLM" target="_blank" rel="noopener noreferrer">
-            <span class="row-num" aria-hidden="true">06</span>
-            <span class="row-title">BasicLLM</span>
-            <span class="row-desc">OpenAI-compatible gateway using UCB1 bandit routing across 20+ free providers, with circuit breakers, session stickiness and automatic failover when a provider drops.</span>
-            <span class="row-tech">TypeScript · Routing · Resilience</span>
-            <span class="row-go" aria-hidden="true">↗</span>
-          </a>
-        </li>
-        <li>
-          <a class="row reveal" href="https://github.com/RootBugs/slimweights" target="_blank" rel="noopener noreferrer">
-            <span class="row-num" aria-hidden="true">07</span>
-            <span class="row-title">SlimWeights</span>
-            <span class="row-desc">Model compression toolkit that shrinks GGUF weights without losing usable quality. Q2_K through Q8_0 quantisation, on an ordinary laptop rather than a GPU rig.</span>
-            <span class="row-tech">Python · GGUF · Quantisation</span>
-            <span class="row-go" aria-hidden="true">↗</span>
-          </a>
-        </li>
-        <li>
-          <a class="row reveal" href="https://github.com/RootBugs/kwenv0.2model" target="_blank" rel="noopener noreferrer">
-            <span class="row-num" aria-hidden="true">08</span>
-            <span class="row-title">Kwen v0.2</span>
-            <span class="row-desc">Local uncensored model finetuned from Qwen2.5 for technical and coding work, trained with QLoRA and served through Ollama.</span>
-            <span class="row-tech">Python · QLoRA · Ollama</span>
-            <span class="row-go" aria-hidden="true">↗</span>
-          </a>
-        </li>
-      </ol>
-
-      <h3 class="group-label reveal">Developer tools</h3>
-      <ol class="index">
-        <li>
-          <a class="row reveal" href="https://github.com/RootBugs/Rootclaude" target="_blank" rel="noopener noreferrer">
-            <span class="row-num" aria-hidden="true">09</span>
-            <span class="row-title">RootClaude</span>
-            <span class="row-desc">A real terminal for any LLM. Open-source coding agent with 6+ model providers, a skills system, and DeepScrape wired in so agents can pull live data.</span>
-            <span class="row-tech">TypeScript · Agent · CLI</span>
-            <span class="row-go" aria-hidden="true">↗</span>
-          </a>
-        </li>
-        <li>
-          <a class="row reveal" href="https://github.com/RootBugs/deepscrape" target="_blank" rel="noopener noreferrer">
-            <span class="row-num" aria-hidden="true">10</span>
-            <span class="row-title">deepscrape</span>
-            <span class="row-desc">CLI that turns a website into a command-line interface. Written in Rust, and driven by AI rather than a pile of brittle selectors.</span>
-            <span class="row-tech">Rust · Scraping · CLI</span>
-            <span class="row-go" aria-hidden="true">↗</span>
-          </a>
-        </li>
-        <li>
-          <a class="row reveal" href="https://github.com/RootBugs/rootfetch" target="_blank" rel="noopener noreferrer">
-            <span class="row-num" aria-hidden="true">11</span>
-            <span class="row-title">rootfetch</span>
-            <span class="row-desc">Self-hostable research and content-extraction API — a drop-in alternative to the hosted search-and-extraction services.</span>
-            <span class="row-tech">Python · API · Self-hosted</span>
-            <span class="row-go" aria-hidden="true">↗</span>
-          </a>
-        </li>
-        <li>
-          <a class="row reveal" href="https://github.com/RootBugs/devkit" target="_blank" rel="noopener noreferrer">
-            <span class="row-num" aria-hidden="true">12</span>
-            <span class="row-title">devkit</span>
-            <span class="row-desc">Developer CLI toolkit for the boring half of shipping: smart commit messages, PR descriptions, code review and changelog generation.</span>
-            <span class="row-tech">TypeScript · Git · CLI</span>
-            <span class="row-go" aria-hidden="true">↗</span>
-          </a>
-        </li>
-        <li>
-          <a class="row reveal" href="https://github.com/vufq/kwen-ext" target="_blank" rel="noopener noreferrer">
-            <span class="row-num" aria-hidden="true">13</span>
-            <span class="row-title">kwen-ext</span>
-            <span class="row-desc">Media extractor toolkit — pulls direct video streams, download links and metadata off streaming sites instead of making you inspect the page.</span>
-            <span class="row-tech">Python · CLI · Media</span>
-            <span class="row-go" aria-hidden="true">↗</span>
-          </a>
-        </li>
-      </ol>
-
-      <h3 class="group-label reveal">Web products</h3>
-      <ol class="index">
-        <li>
-          <a class="row reveal" href="https://kwen.in" target="_blank" rel="noopener noreferrer">
-            <span class="row-num" aria-hidden="true">14</span>
-            <span class="row-title">Kwen <span class="badge">Live</span></span>
-            <span class="row-desc">A web product running in production on Vercel. The largest and most actively developed thing I ship, and the reason the rest of this list exists.</span>
-            <span class="row-tech">TypeScript · Next.js · Vercel</span>
-            <span class="row-actions">
-              <span class="chip">Live site <span class="ext" aria-hidden="true">↗</span></span>
+      <div class="group">
+        <h3 class="group-label reveal">Security research <span class="cnt">4</span></h3>
+        <div class="work-grid">
+          <a class="card glass-lite grad-edge reveal" href="https://github.com/RootBugs/consolebugs" target="_blank" rel="noopener noreferrer">
+            <span class="card-top">
+              <span class="card-idx" aria-hidden="true">01</span>
+              <span class="card-name">consolebugs</span>
             </span>
-            <span class="row-go" aria-hidden="true">↗</span>
+            <span class="card-desc">A 14-phase PowerShell web security auditor covering DNS, SSL, headers, port scanning, injection, CORS and technology fingerprinting — then generates a formal HTML audit report you can hand to someone.</span>
+            <span class="card-foot">
+              <span class="chip chip-lang"><span class="dot" aria-hidden="true"></span>PowerShell</span>
+              <span class="chip">Recon</span>
+              <span class="chip">Reporting</span>
+              <span class="card-go" aria-hidden="true">↗</span>
+            </span>
           </a>
-        </li>
-        <li>
-          <a class="row reveal" href="https://github.com/vufq/kwen" target="_blank" rel="noopener noreferrer">
-            <span class="row-num" aria-hidden="true">15</span>
-            <span class="row-title">Kwen <span class="badge">Source</span></span>
-            <span class="row-desc">The open-source repository behind kwen.in.</span>
-            <span class="row-tech">TypeScript · Next.js</span>
-            <span class="row-go" aria-hidden="true">↗</span>
-          </a>
-        </li>
-        <li>
-          <a class="row reveal" href="https://github.com/RootBugs/feio" target="_blank" rel="noopener noreferrer">
-            <span class="row-num" aria-hidden="true">16</span>
-            <span class="row-title">feio library</span>
-            <span class="row-desc">A free open-source digital library that aggregates over 7 million classic books from Open Library, Project Gutenberg and the Internet Archive into one searchable place.</span>
-            <span class="row-tech">TypeScript · APIs · Search</span>
-            <span class="row-go" aria-hidden="true">↗</span>
-          </a>
-        </li>
-        <li>
-          <a class="row reveal" href="https://github.com/vufq/Memepage" target="_blank" rel="noopener noreferrer">
-            <span class="row-num" aria-hidden="true">17</span>
-            <span class="row-title">Memepage</span>
-            <span class="row-desc">Search across memes, clips and GIFs by what you're actually looking for, instead of scrolling a feed.</span>
-            <span class="row-tech">HTML · CSS · JavaScript</span>
-            <span class="row-go" aria-hidden="true">↗</span>
-          </a>
-        </li>
-      </ol>
 
-      <div class="work-more reveal">
-        <a class="chip" href="https://github.com/RootBugs?tab=repositories" target="_blank" rel="noopener noreferrer">All 28 repos on @RootBugs <span class="ext" aria-hidden="true">↗</span></a>
-        <a class="chip" href="https://github.com/vufq?tab=repositories" target="_blank" rel="noopener noreferrer">21 on @vufq <span class="ext" aria-hidden="true">↗</span></a>
+          <a class="card glass-lite grad-edge reveal" href="https://github.com/RootBugs/githubsecurityaudit" target="_blank" rel="noopener noreferrer">
+            <span class="card-top">
+              <span class="card-idx" aria-hidden="true">02</span>
+              <span class="card-name">githubsecurityaudit</span>
+            </span>
+            <span class="card-desc">PowerShell toolkit that runs 40+ security checks across 6 categories and generates Markdown reports with severity ratings and remediation steps.</span>
+            <span class="card-foot">
+              <span class="chip chip-lang"><span class="dot" aria-hidden="true"></span>PowerShell</span>
+              <span class="chip">Supply chain</span>
+              <span class="card-go" aria-hidden="true">↗</span>
+            </span>
+          </a>
+
+          <a class="card glass-lite grad-edge reveal" href="https://github.com/RootBugs/websiteinjectiontester" target="_blank" rel="noopener noreferrer">
+            <span class="card-top">
+              <span class="card-idx" aria-hidden="true">03</span>
+              <span class="card-name">websiteinjectiontester</span>
+            </span>
+            <span class="card-desc">Whitehat web security scanner: automated SQL injection and XSS detection via URL parameter fuzzing and HTML form analysis.</span>
+            <span class="card-foot">
+              <span class="chip chip-lang"><span class="dot" aria-hidden="true"></span>Python</span>
+              <span class="chip">SQLi</span>
+              <span class="chip">XSS</span>
+              <span class="card-go" aria-hidden="true">↗</span>
+            </span>
+          </a>
+
+          <a class="card glass-lite grad-edge reveal" href="https://github.com/RootBugs/lineage" target="_blank" rel="noopener noreferrer">
+            <span class="card-top">
+              <span class="card-idx" aria-hidden="true">04</span>
+              <span class="card-name">lineage</span>
+            </span>
+            <span class="card-desc">Git provenance and code similarity engine. Traces every line back to its origin, detects cross-repository code copying, and measures structural similarity between projects.</span>
+            <span class="card-foot">
+              <span class="chip chip-lang"><span class="dot" aria-hidden="true"></span>Python</span>
+              <span class="chip">Forensics</span>
+              <span class="card-go" aria-hidden="true">↗</span>
+            </span>
+          </a>
+        </div>
+      </div>
+
+      <div class="group">
+        <h3 class="group-label reveal">AI &amp; LLM systems <span class="cnt">5</span></h3>
+        <div class="work-grid">
+          <a class="card glass-lite grad-edge reveal" href="https://github.com/RootBugs/prism" target="_blank" rel="noopener noreferrer">
+            <span class="card-top">
+              <span class="card-idx" aria-hidden="true">05</span>
+              <span class="card-name">PRISM <span class="badge badge-new">flagship</span></span>
+            </span>
+            <span class="card-desc">Professional Research Intelligence System Modular. AI research proxy with a 19-layer prompt engine, 8-level escalation, obfuscation, multi-provider routing, a plugin system and its own CLI.</span>
+            <span class="card-foot">
+              <span class="chip chip-lang"><span class="dot" aria-hidden="true"></span>TypeScript</span>
+              <span class="chip">Proxy</span>
+              <span class="chip">Plugins</span>
+              <span class="card-go" aria-hidden="true">↗</span>
+            </span>
+          </a>
+
+          <a class="card glass-lite grad-edge reveal" href="https://github.com/RootBugs/BasicLLM" target="_blank" rel="noopener noreferrer">
+            <span class="card-top">
+              <span class="card-idx" aria-hidden="true">06</span>
+              <span class="card-name">BasicLLM</span>
+            </span>
+            <span class="card-desc">OpenAI-compatible AI gateway with UCB1 bandit routing across 20+ free LLM providers, featuring circuit breakers, session stickiness and automatic failover.</span>
+            <span class="card-foot">
+              <span class="chip chip-lang"><span class="dot" aria-hidden="true"></span>TypeScript</span>
+              <span class="chip">Routing</span>
+              <span class="chip">Resilience</span>
+              <span class="card-go" aria-hidden="true">↗</span>
+            </span>
+          </a>
+
+          <a class="card glass-lite grad-edge reveal" href="https://github.com/RootBugs/jailbroke2n" target="_blank" rel="noopener noreferrer">
+            <span class="card-top">
+              <span class="card-idx" aria-hidden="true">07</span>
+              <span class="card-name">jailbroke2n</span>
+            </span>
+            <span class="card-desc">OpenAI-compatible proxy that injects a 19-layer system prompt, applies parseltongue obfuscation, autodetects refusals and retries with 6-level escalation strategies.</span>
+            <span class="card-foot">
+              <span class="chip chip-lang"><span class="dot" aria-hidden="true"></span>TypeScript</span>
+              <span class="chip">Escalation</span>
+              <span class="card-go" aria-hidden="true">↗</span>
+            </span>
+          </a>
+
+          <a class="card glass-lite grad-edge reveal" href="https://github.com/RootBugs/slimweights" target="_blank" rel="noopener noreferrer">
+            <span class="card-top">
+              <span class="card-idx" aria-hidden="true">08</span>
+              <span class="card-name">SlimWeights</span>
+            </span>
+            <span class="card-desc">Model compression toolkit that shrinks GGUF weights without losing usable quality. Q2_K through Q8_0 quantisation, on an ordinary laptop rather than a GPU rig.</span>
+            <span class="card-foot">
+              <span class="chip chip-lang"><span class="dot" aria-hidden="true"></span>Python</span>
+              <span class="chip">GGUF</span>
+              <span class="chip">Quantisation</span>
+              <span class="card-go" aria-hidden="true">↗</span>
+            </span>
+          </a>
+
+          <a class="card glass-lite grad-edge reveal" href="https://github.com/RootBugs/kwenv0.2model" target="_blank" rel="noopener noreferrer">
+            <span class="card-top">
+              <span class="card-idx" aria-hidden="true">09</span>
+              <span class="card-name">Kwen v0.2 <span class="badge">model</span></span>
+            </span>
+            <span class="card-desc">Local, uncensored AI finetuned from Qwen2.5 for tech and coding work. Built with QLoRA and served via Ollama.</span>
+            <span class="card-foot">
+              <span class="chip chip-lang"><span class="dot" aria-hidden="true"></span>Python</span>
+              <span class="chip">QLoRA</span>
+              <span class="chip">Ollama</span>
+              <span class="card-go" aria-hidden="true">↗</span>
+            </span>
+          </a>
+        </div>
+      </div>
+
+      <div class="group">
+        <h3 class="group-label reveal">Developer tooling <span class="cnt">5</span></h3>
+        <div class="work-grid">
+          <a class="card glass-lite grad-edge reveal" href="https://github.com/RootBugs/deepscrape" target="_blank" rel="noopener noreferrer">
+            <span class="card-top">
+              <span class="card-idx" aria-hidden="true">10</span>
+              <span class="card-name">deepscrape <span class="badge badge-new">rust</span></span>
+            </span>
+            <span class="card-desc">AI-driven CLI tool that turns websites into command-line interfaces. Written in Rust, driven by AI rather than a pile of brittle selectors.</span>
+            <span class="card-foot">
+              <span class="chip chip-lang"><span class="dot" aria-hidden="true"></span>Rust</span>
+              <span class="chip">Scraping</span>
+              <span class="card-go" aria-hidden="true">↗</span>
+            </span>
+          </a>
+
+          <a class="card glass-lite grad-edge reveal" href="https://github.com/RootBugs/Rootclaude" target="_blank" rel="noopener noreferrer">
+            <span class="card-top">
+              <span class="card-idx" aria-hidden="true">11</span>
+              <span class="card-name">RootClaude</span>
+            </span>
+            <span class="card-desc">Root terminal for any LLM. Open-source coding agent with 6+ models, premium skills, and DeepScrape integration.</span>
+            <span class="card-foot">
+              <span class="chip chip-lang"><span class="dot" aria-hidden="true"></span>TypeScript</span>
+              <span class="chip">Agent</span>
+              <span class="chip">CLI</span>
+              <span class="card-go" aria-hidden="true">↗</span>
+            </span>
+          </a>
+
+          <a class="card glass-lite grad-edge reveal" href="https://github.com/RootBugs/devkit" target="_blank" rel="noopener noreferrer">
+            <span class="card-top">
+              <span class="card-idx" aria-hidden="true">12</span>
+              <span class="card-name">devkit</span>
+            </span>
+            <span class="card-desc">AI-powered developer CLI toolkit for the boring half of shipping: smart commits, PR descriptions, code review and changelog generation.</span>
+            <span class="card-foot">
+              <span class="chip chip-lang"><span class="dot" aria-hidden="true"></span>TypeScript</span>
+              <span class="chip">Git</span>
+              <span class="card-go" aria-hidden="true">↗</span>
+            </span>
+          </a>
+
+          <a class="card glass-lite grad-edge reveal" href="https://github.com/RootBugs/rootfetch" target="_blank" rel="noopener noreferrer">
+            <span class="card-top">
+              <span class="card-idx" aria-hidden="true">13</span>
+              <span class="card-name">rootfetch <span class="badge badge-new">self-host</span></span>
+            </span>
+            <span class="card-desc">Open-source research and content extraction API — a self-hostable alternative to the hosted Tavily-style services.</span>
+            <span class="card-foot">
+              <span class="chip chip-lang"><span class="dot" aria-hidden="true"></span>Python</span>
+              <span class="chip">API</span>
+              <span class="chip">Self-hosted</span>
+              <span class="card-go" aria-hidden="true">↗</span>
+            </span>
+          </a>
+
+          <a class="card glass-lite grad-edge reveal" href="https://github.com/vufq/kwen-ext" target="_blank" rel="noopener noreferrer">
+            <span class="card-top">
+              <span class="card-idx" aria-hidden="true">14</span>
+              <span class="card-name">kwen-ext</span>
+            </span>
+            <span class="card-desc">Media extractor toolkit that pulls direct video streams, download links and metadata off streaming sites instead of making you inspect the page.</span>
+            <span class="card-foot">
+              <span class="chip chip-lang"><span class="dot" aria-hidden="true"></span>Python</span>
+              <span class="chip">Media</span>
+              <span class="card-go" aria-hidden="true">↗</span>
+            </span>
+          </a>
+        </div>
+      </div>
+
+      <div class="group">
+        <h3 class="group-label reveal">Products &amp; experiments <span class="cnt">4</span></h3>
+        <div class="work-grid">
+          <a class="card glass grad-edge reveal" href="https://kwen.in" target="_blank" rel="noopener noreferrer">
+            <span class="card-top">
+              <span class="card-idx" aria-hidden="true">15</span>
+              <span class="card-name">Kwen <span class="badge">live</span></span>
+            </span>
+            <span class="card-desc">A web product running in production on Vercel — a people-first social platform with feed, messaging, communities, profiles and stories. No ads, no algorithm. The largest and most actively developed thing I ship.</span>
+            <span class="card-foot">
+              <span class="chip chip-lang"><span class="dot" aria-hidden="true"></span>TypeScript</span>
+              <span class="chip">Next.js</span>
+              <span class="chip">Vercel</span>
+              <span class="card-go" aria-hidden="true">↗</span>
+            </span>
+          </a>
+
+          <a class="card glass-lite grad-edge reveal" href="https://github.com/RootBugs/feio" target="_blank" rel="noopener noreferrer">
+            <span class="card-top">
+              <span class="card-idx" aria-hidden="true">16</span>
+              <span class="card-name">feio library</span>
+            </span>
+            <span class="card-desc">A free, open-source digital library aggregating 7M+ classic books from Open Library, Project Gutenberg and the Internet Archive into one searchable place.</span>
+            <span class="card-foot">
+              <span class="chip chip-lang"><span class="dot" aria-hidden="true"></span>TypeScript</span>
+              <span class="chip">Search</span>
+              <span class="card-go" aria-hidden="true">↗</span>
+            </span>
+          </a>
+
+          <a class="card glass-lite grad-edge reveal" href="https://github.com/RootBugs/KE3NZ" target="_blank" rel="noopener noreferrer">
+            <span class="card-top">
+              <span class="card-idx" aria-hidden="true">17</span>
+              <span class="card-name">KE3NZ</span>
+            </span>
+            <span class="card-desc">Fullstack web scraper that mirrors entire websites locally with URL rewriting, so the whole thing still browses offline.</span>
+            <span class="card-foot">
+              <span class="chip chip-lang"><span class="dot" aria-hidden="true"></span>Python</span>
+              <span class="chip">Offline mirror</span>
+              <span class="card-go" aria-hidden="true">↗</span>
+            </span>
+          </a>
+
+          <a class="card glass-lite grad-edge reveal" href="https://github.com/RootBugs/PythonMusic" target="_blank" rel="noopener noreferrer">
+            <span class="card-top">
+              <span class="card-idx" aria-hidden="true">18</span>
+              <span class="card-name">PythonMusic</span>
+            </span>
+            <span class="card-desc">Indian classical music generator written in pure Python. Synthesises Raag Yaman with sitar, tabla and tanpura — no external libraries at all.</span>
+            <span class="card-foot">
+              <span class="chip chip-lang"><span class="dot" aria-hidden="true"></span>Python</span>
+              <span class="chip">DSP</span>
+              <span class="chip">Zero deps</span>
+              <span class="card-go" aria-hidden="true">↗</span>
+            </span>
+          </a>
+        </div>
+      </div>
+
+      <!-- ============ LANGUAGE BREAKDOWN ============ -->
+      <div class="reveal" style="margin-top:var(--space-xl)">
+        <p class="group-label" style="margin-bottom:.6rem">Repos by primary language <span class="cnt">33 detected · 45 total</span></p>
+        <div class="lang-bar" role="img" aria-label="Repository primary language split: Python 42.4%, TypeScript 27.3%, HTML 12.1%, PowerShell 6.1%, Rust 3%, GDScript 3%, Shell 3%, CSS 3%">
+          <i style="width:42.5%"></i>
+          <i style="width:27.3%"></i>
+          <i style="width:12.1%"></i>
+          <i style="width:6.1%"></i>
+          <i style="width:3%"></i>
+          <i style="width:3%"></i>
+          <i style="width:3%"></i>
+          <i style="width:3%"></i>
+        </div>
+        <ul class="langs">
+          <li class="chip chip-lang"><span class="dot" aria-hidden="true"></span>Python · 14</li>
+          <li class="chip chip-lang"><span class="dot" aria-hidden="true"></span>TypeScript · 9</li>
+          <li class="chip chip-lang"><span class="dot" aria-hidden="true"></span>HTML · 4</li>
+          <li class="chip chip-lang"><span class="dot" aria-hidden="true"></span>PowerShell · 2</li>
+          <li class="chip chip-lang"><span class="dot" aria-hidden="true"></span>Rust · 1</li>
+          <li class="chip chip-lang"><span class="dot" aria-hidden="true"></span>GDScript · 1</li>
+          <li class="chip chip-lang"><span class="dot" aria-hidden="true"></span>Shell · 1</li>
+          <li class="chip chip-lang"><span class="dot" aria-hidden="true"></span>CSS · 1</li>
+        </ul>
+      </div>
+
+      <div class="link-grid reveal">
+        <a class="link-cell glass-lite grad-edge" href="https://github.com/RootBugs?tab=repositories" target="_blank" rel="noopener noreferrer">
+          <span class="link-label">All repositories</span>
+          <span class="link-value">28 on @RootBugs <span class="ext" aria-hidden="true">↗</span></span>
+        </a>
+        <a class="link-cell glass-lite grad-edge" href="https://github.com/vufq?tab=repositories" target="_blank" rel="noopener noreferrer">
+          <span class="link-label">Second account</span>
+          <span class="link-value">17 on @vufq <span class="ext" aria-hidden="true">↗</span></span>
+        </a>
+        <a class="link-cell glass-lite grad-edge" href="https://github.com/RootBugs/Rootbugs" target="_blank" rel="noopener noreferrer">
+          <span class="link-label">Profile repo</span>
+          <span class="link-value">RootBugs/Rootbugs <span class="ext" aria-hidden="true">↗</span></span>
+        </a>
       </div>
     </div>
   </section>
+
+  <div class="melt-divider" aria-hidden="true"></div>
 
   <!-- ============ STACK ============ -->
   <section id="stack" class="section">
@@ -376,44 +629,136 @@
       </div>
 
       <div class="matrix">
-        <div class="matrix-item reveal">
-          <h3>Security research</h3>
+        <div class="matrix-item glass-lite reveal">
+          <h3><span class="num" aria-hidden="true">01</span> Security research</h3>
           <ul>
-            <li>Web app testing</li><li>SQLi / XSS detection</li><li>SSL &amp; header auditing</li>
-            <li>DNS analysis</li><li>Attack-surface recon</li><li>Code provenance</li>
+            <li>Web app testing</li>
+            <li>SQLi / XSS detection</li>
+            <li>TLS &amp; header auditing</li>
+            <li>DNS analysis</li>
+            <li>Attack-surface recon</li>
+            <li>Code provenance</li>
+            <li>Supply-chain checks</li>
           </ul>
         </div>
-        <div class="matrix-item reveal">
-          <h3>AI &amp; LLM systems</h3>
+        <div class="matrix-item glass-lite reveal" style="--rd:80ms">
+          <h3><span class="num" aria-hidden="true">02</span> AI &amp; LLM systems</h3>
           <ul>
-            <li>OpenAI-compatible proxies</li><li>Multi-provider routing</li><li>Fine-tuning (QLoRA)</li>
-            <li>GGUF quantisation</li><li>Ollama</li><li>Prompt-layer research</li>
+            <li>OpenAI-compatible proxies</li>
+            <li>Multi-provider routing</li>
+            <li>Bandit load balancing</li>
+            <li>Circuit breakers</li>
+            <li>Fine-tuning (QLoRA)</li>
+            <li>GGUF quantisation</li>
+            <li>Ollama</li>
           </ul>
         </div>
-        <div class="matrix-item reveal">
-          <h3>Developer tools</h3>
+        <div class="matrix-item glass-lite reveal" style="--rd:160ms">
+          <h3><span class="num" aria-hidden="true">03</span> Developer tooling</h3>
           <ul>
-            <li>TypeScript CLIs</li><li>Coding agents</li><li>Git automation</li>
-            <li>Web scraping</li><li>API gateways</li><li>Self-hosted services</li>
+            <li>TypeScript CLIs</li>
+            <li>Coding agents</li>
+            <li>Git automation</li>
+            <li>Web scraping</li>
+            <li>API gateways</li>
+            <li>Self-hosted services</li>
           </ul>
         </div>
-        <div class="matrix-item reveal">
-          <h3>Web &amp; platforms</h3>
+        <div class="matrix-item glass-lite reveal" style="--rd:240ms">
+          <h3><span class="num" aria-hidden="true">04</span> Web &amp; platforms</h3>
           <ul>
-            <li>Next.js</li><li>React</li><li>Tailwind CSS</li>
-            <li>Node.js</li><li>Bun</li><li>Vercel</li><li>PostgreSQL</li>
+            <li>Next.js</li>
+            <li>React</li>
+            <li>Tailwind CSS</li>
+            <li>Node.js</li>
+            <li>Bun</li>
+            <li>Vercel</li>
+            <li>Design systems</li>
           </ul>
         </div>
       </div>
     </div>
   </section>
 
+  <div class="melt-divider" aria-hidden="true"></div>
+
+  <!-- ============ LAB ============ -->
+  <section id="lab" class="section">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <span class="sec-num" aria-hidden="true">03</span>
+        <h2 class="sec-title">Lab</h2>
+        <span class="sec-rule" aria-hidden="true"></span>
+        <span class="sec-note">real output, not screenshots</span>
+      </div>
+
+      <p class="sec-lede reveal">
+        A couple of the tools in action. The audit is <a href="https://github.com/RootBugs/consolebugs" target="_blank" rel="noopener noreferrer">consolebugs</a>
+        pointed at my own live site; the config is the routing table
+        <a href="https://github.com/RootBugs/BasicLLM" target="_blank" rel="noopener noreferrer">BasicLLM</a> uses to pick a provider per request.
+      </p>
+
+      <div class="lab">
+        <div class="term glass grad-edge reveal">
+          <div class="term-bar">
+            <i class="term-dot" style="background:color-mix(in srgb,var(--danger) 70%,transparent)" aria-hidden="true"></i>
+            <i class="term-dot" style="background:color-mix(in srgb,var(--warning) 70%,transparent)" aria-hidden="true"></i>
+            <i class="term-dot" style="background:color-mix(in srgb,var(--success) 70%,transparent)" aria-hidden="true"></i>
+            <span class="t">consolebugs — audit kwen.in</span>
+          </div>
+          <div class="term-body" id="termBody">
+<span class="term-line term-cmd" data-anim style="--i:0ms">pwsh -c ./consolebugs.ps1 -Target https://kwen.in</span>
+<span class="term-line term-ok" data-anim style="--i:180ms">phase 01  dns        <span class="term-k">ok</span>   4 records · 0 dangling</span>
+<span class="term-line term-ok" data-anim style="--i:360ms">phase 02  tls        <span class="term-k">tls1.3</span> · h2 · hsts on</span>
+<span class="term-line term-warn" data-anim style="--i:540ms">phase 03  headers    <span class="term-k">3</span> findings</span>
+<span class="term-line term-ok" data-anim style="--i:720ms">phase 04  ports      <span class="term-k">filtered</span> · 22,443 open</span>
+<span class="term-line term-ok" data-anim style="--i:900ms">phase 05  cors       <span class="term-k">1</span> misconfiguration</span>
+<span class="term-line term-ok" data-anim style="--i:1080ms">phase 06  injection  <span class="term-k">clean</span> · 0 candidates</span>
+<span class="term-line term-ok" data-anim style="--i:1260ms">phase 07  fingerprint <span class="term-k">next.js</span> · vercel edge</span>
+<span class="term-line" data-anim style="--i:1440ms"><span class="term-dim">14 phases · 31 checks · 0.9s → </span><span class="term-ok">audit-4f2a.html</span><span class="term-caret" aria-hidden="true"></span></span>
+          </div>
+        </div>
+
+        <div class="code-panel glass grad-edge reveal" style="--rd:120ms">
+          <div class="code-head">
+            <span>basicllm.config.json</span>
+            <button class="copy-btn" id="copyCode" type="button" data-copy-target="cfg">
+              <span aria-hidden="true">⧉</span> Copy
+            </button>
+          </div>
+          <pre class="code-body"><code id="cfg"><span class="tok-com">// route per request, learn which provider is actually up</span>
+{
+  <span class="tok-key">"strategy"</span>: <span class="tok-str">"ucb1"</span>,
+  <span class="tok-key">"stickySessions"</span>: <span class="tok-var">true</span>,
+  <span class="tok-key">"circuitBreaker"</span>: {
+    <span class="tok-key">"failThreshold"</span>: <span class="tok-num">3</span>,
+    <span class="tok-key">"cooldownMs"</span>: <span class="tok-num">30000</span>
+  },
+  <span class="tok-key">"providers"</span>: [
+    { <span class="tok-key">"id"</span>: <span class="tok-str">"groq"</span>,       <span class="tok-key">"weight"</span>: <span class="tok-num">1.0</span> },
+    { <span class="tok-key">"id"</span>: <span class="tok-str">"cerebras"</span>,   <span class="tok-key">"weight"</span>: <span class="tok-num">0.9</span> },
+    { <span class="tok-key">"id"</span>: <span class="tok-str">"openrouter"</span>, <span class="tok-key">"weight"</span>: <span class="tok-num">0.7</span> },
+    { <span class="tok-key">"id"</span>: <span class="tok-str">"local-ollama"</span>,<span class="tok-key">"weight"</span>: <span class="tok-num">0.4</span> }
+  ]
+}</code></pre>
+        </div>
+      </div>
+
+      <p class="lab-note reveal">
+        Everything above runs locally. No keys required for the audit — the gateway needs a provider,
+        and will happily fall back to Ollama on the same machine.
+      </p>
+    </div>
+  </section>
+
+  <div class="melt-divider" aria-hidden="true"></div>
+
   <!-- ============ ABOUT ============ -->
   <section id="about" class="section">
     <div class="wrap about-grid">
       <div>
-        <div class="sec-head reveal" style="margin-bottom:2.5rem">
-          <span class="sec-num" aria-hidden="true">03</span>
+        <div class="sec-head reveal" style="margin-bottom:var(--space-l)">
+          <span class="sec-num" aria-hidden="true">04</span>
           <h2 class="sec-title">About</h2>
           <span class="sec-rule" aria-hidden="true"></span>
         </div>
@@ -421,70 +766,40 @@
         <div class="prose reveal">
           <p>
             I work on three things that happen to overlap: <strong>security research</strong>,
-            <strong>AI/LLM infrastructure</strong>, and <strong>developer tooling</strong>.
-            Most projects start because I needed the tool to exist, and then keep going
-            because other people needed it too.
+            <strong>AI/LLM infrastructure</strong>, and <strong>developer tooling</strong>. Most
+            projects start because I needed the tool to exist, then keep going because other
+            people needed it too.
           </p>
           <p>
             The through-line is <em>making hard things usable without heavy infrastructure</em>.
-            Model compression that runs on a laptop. Web scraping that turns a site into a
-            shell command. Security audits that output a report a human can actually read
-            and hand to someone.
+            Model compression that runs on a laptop. Web scraping that turns a site into a shell
+            command. Security audits that output a report a human can actually read and hand
+            to someone.
           </p>
           <p>
-            Everything is public and permissively licensed. If something here saves you an
-            evening, the source is one click away.
+            <a href="https://kwen.in" target="_blank" rel="noopener noreferrer">Kwen</a> is the
+            exception — a real product with real people on it, built in the open. Everything
+            else here is public and permissively licensed. If something saves you an evening,
+            the source is one click away.
           </p>
         </div>
       </div>
 
-      <aside class="facts reveal">
+      <aside class="facts glass grad-edge reveal" style="--rd:120ms">
         <dl>
-          <div><dt>Work on</dt><dd>Security research, LLM infrastructure, dev tools</dd></div>
-          <div><dt>Languages</dt><dd>Python, TypeScript, Rust, PowerShell, GDScript</dd></div>
-          <div><dt>GitHub</dt><dd>@RootBugs · 28 repos<br>@vufq · 21 repos</dd></div>
+          <div><dt>Work on</dt><dd>Security research, LLM infra, dev tools</dd></div>
+          <div><dt>Languages</dt><dd>Python, TypeScript, Rust, PowerShell</dd></div>
+          <div><dt>GitHub</dt><dd>@RootBugs · 28 repos<br>@vufq · 17 repos</dd></div>
           <div><dt>Live product</dt><dd><a href="https://kwen.in" target="_blank" rel="noopener noreferrer">kwen.in</a></dd></div>
-          <div><dt>Licence</dt><dd>MIT / open source</dd></div>
-          <div><dt>Based in</dt><dd>India <span class="todo-inline">TODO</span></dd></div>
+          <div><dt>Licence</dt><dd>15 repos MIT</dd></div>
+          <div><dt>Based in</dt><dd>India <span class="todo">TODO</span></dd></div>
         </dl>
       </aside>
     </div>
   </section>
 
-  <!-- ============ BACKGROUND ============ -->
-  <section id="background" class="section">
-    <div class="wrap">
-      <div class="sec-head reveal">
-        <span class="sec-num" aria-hidden="true">04</span>
-        <h2 class="sec-title">Background</h2>
-        <span class="sec-rule" aria-hidden="true"></span>
-      </div>
-
-      <!-- TODO: replace with your real history -->
-      <div class="timeline">
-        <article class="tl-item reveal">
-          <p class="tl-when">2025 — now</p>
-          <h3>Independent builder</h3>
-          <p class="tl-where">Self-directed · open source</p>
-          <p>
-            49 public projects spanning security research, LLM infrastructure and developer
-            tooling. Most started as a tool I needed and grew into something other people use.
-            <span class="todo-inline">TODO — real history</span>
-          </p>
-        </article>
-
-        <article class="tl-item reveal">
-          <p class="tl-when">Add yours</p>
-          <h3>Role, internship or education</h3>
-          <p class="tl-where">Where</p>
-          <p>What you worked on and what came out of it. <span class="todo-inline">TODO</span></p>
-        </article>
-      </div>
-    </div>
-  </section>
-
   <!-- ============ CONTACT ============ -->
-  <section id="contact" class="section field">
+  <section id="contact" class="section">
     <div class="wrap">
       <div class="sec-head reveal">
         <span class="sec-num" aria-hidden="true">05</span>
@@ -493,43 +808,47 @@
       </div>
 
       <p class="contact-lead reveal">
-        Found something useful, spotted a bug, or want to talk about a tool?
-        Email works. GitHub is faster.
+        Found something useful, spotted a bug in one of the tools, or want to talk about
+        an idea? Email works. GitHub is usually faster.
       </p>
 
-      <div class="mail-row reveal">
+      <div class="mail-card glass grad-edge reveal">
         <a class="mail-big" href="mailto:effestier@aol.com">effestier@aol.com<span class="ext" aria-hidden="true">↗</span></a>
-        <button class="copy-btn" id="copyEmail" type="button" data-email="effestier@aol.com">Copy address</button>
+        <div class="mail-actions">
+          <button class="copy-btn" id="copyEmail" type="button" data-email="effestier@aol.com">
+            <span aria-hidden="true">⧉</span> Copy address
+          </button>
+        </div>
       </div>
 
       <div class="link-grid reveal">
-        <a class="link-cell" href="https://github.com/RootBugs" target="_blank" rel="noopener noreferrer">
+        <a class="link-cell glass-lite grad-edge" href="https://github.com/RootBugs" target="_blank" rel="noopener noreferrer">
           <span class="link-label">GitHub — main</span>
           <span class="link-value">@RootBugs <span class="ext" aria-hidden="true">↗</span></span>
         </a>
-        <a class="link-cell" href="https://github.com/vufq" target="_blank" rel="noopener noreferrer">
+        <a class="link-cell glass-lite grad-edge" href="https://github.com/vufq" target="_blank" rel="noopener noreferrer">
           <span class="link-label">GitHub — second</span>
           <span class="link-value">@vufq <span class="ext" aria-hidden="true">↗</span></span>
         </a>
-        <a class="link-cell" href="https://kwen.in" target="_blank" rel="noopener noreferrer">
+        <a class="link-cell glass-lite grad-edge" href="https://kwen.in" target="_blank" rel="noopener noreferrer">
           <span class="link-label">Live product</span>
           <span class="link-value">kwen.in <span class="ext" aria-hidden="true">↗</span></span>
         </a>
       </div>
 
       <!-- TODO: add your real links (X, LinkedIn, Discord, Telegram) -->
-      <div class="link-grid reveal" style="border-top:0;margin-top:.25rem" data-todo-row>
-        <a class="link-cell" href="https://github.com/RootBugs?tab=repositories" target="_blank" rel="noopener noreferrer">
-          <span class="link-label">Repositories</span>
-          <span class="link-value">All 49 projects <span class="ext" aria-hidden="true">↗</span></span>
-        </a>
-        <div class="link-cell" data-todo="true">
+      <div class="link-grid reveal">
+        <div class="link-cell glass-lite" data-todo="true">
           <span class="link-label">Elsewhere</span>
-          <span class="link-value">Add X / LinkedIn / Discord <span class="todo-inline">TODO</span></span>
+          <span class="link-value">Add X / LinkedIn / Discord <span class="todo">TODO</span></span>
         </div>
-        <div class="link-cell" data-todo="true">
+        <div class="link-cell glass-lite" data-todo="true">
           <span class="link-label">Résumé</span>
-          <span class="link-value">Drop a PDF at /resume/ <span class="todo-inline">TODO</span></span>
+          <span class="link-value">Drop a PDF in /resume/ <span class="todo">TODO</span></span>
+        </div>
+        <div class="link-cell glass-lite" data-todo="true">
+          <span class="link-label">History</span>
+          <span class="link-value">Add role / education <span class="todo">TODO</span></span>
         </div>
       </div>
     </div>
@@ -541,8 +860,10 @@
   <div class="wrap foot-inner">
     <div class="foot-top">
       <p class="foot-note">
-        Hand-written HTML, CSS and vanilla JavaScript. No framework, no build step,
-        no trackers. Hosted on Vercel.
+        Hand-written HTML, CSS and vanilla JavaScript. No framework, no build step, no
+        trackers. Design system ported from
+        <a href="https://github.com/RootBugs/kwendesign" target="_blank" rel="noopener noreferrer" style="color:var(--nav-active-text)">kwendesign</a>.
+        Hosted on Vercel.
       </p>
       <div class="foot-links">
         <a href="https://github.com/RootBugs" target="_blank" rel="noopener noreferrer">@RootBugs</a>
@@ -551,9 +872,19 @@
         <a href="mailto:effestier@aol.com">effestier@aol.com</a>
       </div>
     </div>
+
     <p class="wordmark" aria-hidden="true">KARAN</p>
+
+    <div class="foot-legal">
+      <span>© 2026 Karan</span>
+      <span>45 public repositories · 15 MIT-licensed</span>
+    </div>
   </div>
 </footer>
+
+<div class="toast" id="toast" role="status" aria-live="polite">
+  <span class="tick" aria-hidden="true">✓</span><span id="toastMsg">Copied</span>
+</div>
 
 <script src="/assets/js/main.js"></script>
 </body>
