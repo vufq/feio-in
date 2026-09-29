@@ -5,15 +5,15 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <title>Karan — Security Research, AI Tooling &amp; Open Source</title>
-<meta name="description" content="Karan builds security research tooling, LLM infrastructure and open-source developer tools. 37 public repositories across Python, TypeScript, Rust, PowerShell and more.">
+<meta name="description" content="Karan builds security research tooling, LLM infrastructure and open-source developer tools. 37 public repositories, mostly Python and TypeScript.">
 <meta name="author" content="Karan">
-<meta name="theme-color" content="#fbfaf7">
+<meta name="theme-color" content="#f6f4ee">
 <link rel="canonical" href="https://feio.in/">
 
 <meta property="og:type" content="profile">
 <meta property="og:url" content="https://feio.in/">
 <meta property="og:title" content="Karan — Security Research, AI Tooling &amp; Open Source">
-<meta property="og:description" content="Security research tooling, LLM infrastructure and open-source developer tools.">
+<meta property="og:description" content="Security research tooling, LLM infrastructure and open-source developer tools. 37 public repositories.">
 <meta property="og:image" content="https://feio.in/assets/img/og.png">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Karan — Security Research, AI Tooling &amp; Open Source">
@@ -23,7 +23,7 @@
 <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/assets/img/icon-192.png">
 <link rel="manifest" href="/site.webmanifest">
-<link rel="preload" href="/assets/fonts/newsreader.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/fraunces.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/assets/fonts/jetbrains-mono.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/assets/css/styles.css">
 
@@ -72,7 +72,8 @@
     <a class="head-name" href="#top">Karan</a>
     <nav class="head-nav" id="primaryNav" aria-label="Primary">
       <a href="#work">Work</a>
-      <a href="#repositories">Index</a>
+      <a href="#shape">Shape</a>
+      <a href="#index">Index</a>
       <a href="#about">About</a>
       <a href="#contact">Contact</a>
     </nav>
@@ -88,15 +89,19 @@
         <h1>I build the tools I wish <em>existed</em>.</h1>
         <p class="lede-p">
           Security research tooling, LLM infrastructure, and small developer
-          utilities. Mostly things I needed to exist. All of it public on GitHub —
-          37 repositories across two accounts, 28 of them under
+          utilities. Mostly things I needed to exist. All of it public on
+          GitHub &mdash; <strong>37 repositories</strong> across two accounts,
+          28 under
           <a href="https://github.com/RootBugs" target="_blank" rel="noopener noreferrer">@RootBugs</a>
           and 9 under
           <a href="https://github.com/vufq" target="_blank" rel="noopener noreferrer">@vufq</a>.
         </p>
-        <p class="lede-meta">
-          Python &middot; TypeScript &middot; Rust &middot; PowerShell
-        </p>
+        <ul class="lede-facts">
+          <li><b>37</b> public repositories</li>
+          <li><b>15</b> MIT licensed</li>
+          <li><b>33</b> with a detected language</li>
+          <li><b>199 MB</b> of source</li>
+        </ul>
       </div>
     </div>
   </section>
@@ -107,7 +112,8 @@
       <div class="band-body">
         <h2 class="sr-only">Selected work</h2>
         <p class="band-intro">
-          Twenty projects, described. The rest of the output is in the index below.
+          Twenty projects, described. Language, licence and stars below are read
+          straight from the GitHub API. The rest of the output is in the index.
         </p>
 
       <h3 class="sub">Security research</h3>
@@ -119,6 +125,7 @@
               <span class="entry-name">consolebugs<span class="ext" aria-hidden="true">&#8599;</span></span>
               <span class="entry-desc">A 14-phase PowerShell web security auditor covering DNS, SSL, headers, port scanning, injection, CORS and technology fingerprinting — then generates a formal HTML audit report you can hand to someone.</span>
               <span class="entry-meta">PowerShell · Recon · Reporting</span>
+              <span class="entry-facts">PowerShell</span>
             </span>
           </a>
         </li>
@@ -129,6 +136,7 @@
               <span class="entry-name">githubsecurityaudit<span class="ext" aria-hidden="true">&#8599;</span></span>
               <span class="entry-desc">PowerShell toolkit that runs 40+ security checks across six categories and writes Markdown reports with severity ratings and remediation steps for each finding.</span>
               <span class="entry-meta">PowerShell · 40+ checks · Markdown reports</span>
+              <span class="entry-facts">PowerShell</span>
             </span>
           </a>
         </li>
@@ -139,6 +147,7 @@
               <span class="entry-name">ThreatLens<span class="ext" aria-hidden="true">&#8599;</span></span>
               <span class="entry-desc">Shows a system through an attacker's eyes — a hacker-perspective analysis tool for finding exposure before someone else does.</span>
               <span class="entry-meta">Python · Security</span>
+              <span class="entry-facts">Python</span>
             </span>
           </a>
         </li>
@@ -149,6 +158,7 @@
               <span class="entry-name">websiteinjectiontester<span class="ext" aria-hidden="true">&#8599;</span></span>
               <span class="entry-desc">Whitehat web scanner that fuzzes URL parameters and analyses HTML forms to detect SQL injection and XSS automatically.</span>
               <span class="entry-meta">Python · SQLi · XSS</span>
+              <span class="entry-facts">Python · 1 star</span>
             </span>
           </a>
         </li>
@@ -159,6 +169,7 @@
               <span class="entry-name">Lineage<span class="ext" aria-hidden="true">&#8599;</span></span>
               <span class="entry-desc">Git provenance and code-similarity engine. Traces every line back to its origin, detects cross-repository code copying, and measures structural similarity between projects.</span>
               <span class="entry-meta">Python · Git · Forensics</span>
+              <span class="entry-facts">Python</span>
             </span>
           </a>
         </li>
@@ -173,6 +184,7 @@
               <span class="entry-name">PRISM<span class="ext" aria-hidden="true">&#8599;</span></span>
               <span class="entry-desc">Modular AI research proxy: a 19-layer prompt engine with 8-level escalation, obfuscation, multi-provider routing, a plugin system and its own CLI.</span>
               <span class="entry-meta">TypeScript · Bun · Proxy</span>
+              <span class="entry-facts">TypeScript · MIT</span>
             </span>
           </a>
         </li>
@@ -183,6 +195,7 @@
               <span class="entry-name">BasicLLM<span class="ext" aria-hidden="true">&#8599;</span></span>
               <span class="entry-desc">OpenAI-compatible gateway using UCB1 bandit routing across 20+ free providers, with circuit breakers, session stickiness and automatic failover when a provider drops.</span>
               <span class="entry-meta">TypeScript · Routing · Resilience</span>
+              <span class="entry-facts">TypeScript · MIT</span>
             </span>
           </a>
         </li>
@@ -193,6 +206,7 @@
               <span class="entry-name">SlimWeights<span class="ext" aria-hidden="true">&#8599;</span></span>
               <span class="entry-desc">Model compression toolkit that shrinks GGUF weights without losing usable quality. Q2_K through Q8_0 quantisation, on an ordinary laptop rather than a GPU rig.</span>
               <span class="entry-meta">Python · GGUF · Quantisation</span>
+              <span class="entry-facts">Python</span>
             </span>
           </a>
         </li>
@@ -203,6 +217,7 @@
               <span class="entry-name">Kwen v0.2<span class="ext" aria-hidden="true">&#8599;</span></span>
               <span class="entry-desc">Local uncensored model finetuned from Qwen2.5 for technical and coding work, trained with QLoRA and served through Ollama.</span>
               <span class="entry-meta">Python · QLoRA · Ollama</span>
+              <span class="entry-facts">Python</span>
             </span>
           </a>
         </li>
@@ -213,6 +228,7 @@
               <span class="entry-name">jailbroke2n<span class="ext" aria-hidden="true">&#8599;</span></span>
               <span class="entry-desc">OpenAI-compatible proxy that injects a 19-layer system prompt, applies Parseltongue obfuscation, auto-detects refusals, and retries with six escalation strategies before giving up.</span>
               <span class="entry-meta">TypeScript · Proxy · Prompt research</span>
+              <span class="entry-facts">TypeScript · 1 star</span>
             </span>
           </a>
         </li>
@@ -227,6 +243,7 @@
               <span class="entry-name">RootClaude<span class="ext" aria-hidden="true">&#8599;</span></span>
               <span class="entry-desc">A real terminal for any LLM. Open-source coding agent with 6+ model providers, a skills system, and DeepScrape wired in so agents can pull live data.</span>
               <span class="entry-meta">TypeScript · Agent · CLI</span>
+              <span class="entry-facts">TypeScript · MIT</span>
             </span>
           </a>
         </li>
@@ -237,6 +254,7 @@
               <span class="entry-name">deepscrape<span class="ext" aria-hidden="true">&#8599;</span></span>
               <span class="entry-desc">CLI that turns a website into a command-line interface. Written in Rust, and driven by AI rather than a pile of brittle selectors.</span>
               <span class="entry-meta">Rust · Scraping · CLI</span>
+              <span class="entry-facts">Rust · MIT · 1 star</span>
             </span>
           </a>
         </li>
@@ -247,6 +265,7 @@
               <span class="entry-name">rootfetch<span class="ext" aria-hidden="true">&#8599;</span></span>
               <span class="entry-desc">Self-hostable research and content-extraction API — a drop-in alternative to the hosted search-and-extraction services.</span>
               <span class="entry-meta">Python · API · Self-hosted</span>
+              <span class="entry-facts">Python · 1 star</span>
             </span>
           </a>
         </li>
@@ -257,6 +276,7 @@
               <span class="entry-name">KE3NZ<span class="ext" aria-hidden="true">&#8599;</span></span>
               <span class="entry-desc">Fullstack scraper that mirrors entire websites locally with URL rewriting, so a whole site stays browsable offline.</span>
               <span class="entry-meta">Python · Mirroring · Offline</span>
+              <span class="entry-facts">Python · MIT</span>
             </span>
           </a>
         </li>
@@ -267,6 +287,7 @@
               <span class="entry-name">devkit<span class="ext" aria-hidden="true">&#8599;</span></span>
               <span class="entry-desc">Developer CLI toolkit for the boring half of shipping: smart commit messages, PR descriptions, code review and changelog generation.</span>
               <span class="entry-meta">TypeScript · Git · CLI</span>
+              <span class="entry-facts">TypeScript · MIT</span>
             </span>
           </a>
         </li>
@@ -277,6 +298,7 @@
               <span class="entry-name">kwen-ext<span class="ext" aria-hidden="true">&#8599;</span></span>
               <span class="entry-desc">Media extractor toolkit — pulls direct video streams, download links and metadata off streaming sites instead of making you inspect the page.</span>
               <span class="entry-meta">Python · CLI · Media</span>
+              <span class="entry-facts">Python</span>
             </span>
           </a>
         </li>
@@ -291,6 +313,7 @@
               <span class="entry-name">Kwen<span class="ext" aria-hidden="true">&#8599;</span></span>
               <span class="entry-desc">A web product running in production on Vercel. The largest and most actively developed thing I ship, and the reason the rest of this list exists.</span>
               <span class="entry-meta">TypeScript · Next.js · Vercel</span>
+              
             </span>
           </a>
         </li>
@@ -301,6 +324,7 @@
               <span class="entry-name">feio library<span class="ext" aria-hidden="true">&#8599;</span></span>
               <span class="entry-desc">A free open-source digital library that aggregates over 7 million classic books from Open Library, Project Gutenberg and the Internet Archive into one searchable place.</span>
               <span class="entry-meta">TypeScript · APIs · Search</span>
+              <span class="entry-facts">TypeScript · MIT</span>
             </span>
           </a>
         </li>
@@ -311,6 +335,7 @@
               <span class="entry-name">PythonMusic<span class="ext" aria-hidden="true">&#8599;</span></span>
               <span class="entry-desc">Indian classical music generator in pure Python — synthesises Raag Yaman with sitar, tabla and tanpura and no external libraries at all.</span>
               <span class="entry-meta">Python · DSP · Synthesis</span>
+              <span class="entry-facts">Python · MIT</span>
             </span>
           </a>
         </li>
@@ -321,6 +346,7 @@
               <span class="entry-name">rage doll rush<span class="ext" aria-hidden="true">&#8599;</span></span>
               <span class="entry-desc">A 3D battle royale FPS built in Godot 4.3, with AI opponents, shrinking zones and procedurally generated arenas. The one place I write GDScript.</span>
               <span class="entry-meta">GDScript · Godot 4.3 · Multiplayer</span>
+              <span class="entry-facts">GDScript · 2 stars</span>
             </span>
           </a>
         </li>
@@ -330,61 +356,189 @@
     </div>
   </section>
 
-  <section id="repositories" class="band">
+  <section id="shape" class="band">
+    <div class="shell grid">
+      <p class="margin-label">The shape</p>
+      <div class="band-body">
+        <h2 class="sr-only">The shape of the output</h2>
+        <p class="band-intro">
+          What 37 repositories actually look like, counted rather than
+          described.
+        </p>
+
+        <div class="panel">
+          <div class="panel-half">
+            <h3 class="panel-title">By language</h3>
+            <ul class="bars">
+              <li class="bar-row">
+                <span class="bar-name">Python</span>
+                <span class="bar-track"><i style="width:37.84%"></i></span>
+                <span class="bar-val">14</span>
+              </li>
+              <li class="bar-row">
+                <span class="bar-name">TypeScript</span>
+                <span class="bar-track"><i style="width:24.32%"></i></span>
+                <span class="bar-val">9</span>
+              </li>
+              <li class="bar-row">
+                <span class="bar-name">HTML</span>
+                <span class="bar-track"><i style="width:13.51%"></i></span>
+                <span class="bar-val">5</span>
+              </li>
+              <li class="bar-row">
+                <span class="bar-name">None</span>
+                <span class="bar-track"><i style="width:10.81%"></i></span>
+                <span class="bar-val">4</span>
+              </li>
+              <li class="bar-row">
+                <span class="bar-name">PowerShell</span>
+                <span class="bar-track"><i style="width:5.41%"></i></span>
+                <span class="bar-val">2</span>
+              </li>
+              <li class="bar-row">
+                <span class="bar-name">GDScript</span>
+                <span class="bar-track"><i style="width:2.70%"></i></span>
+                <span class="bar-val">1</span>
+              </li>
+              <li class="bar-row">
+                <span class="bar-name">Rust</span>
+                <span class="bar-track"><i style="width:2.70%"></i></span>
+                <span class="bar-val">1</span>
+              </li>
+              <li class="bar-row">
+                <span class="bar-name">Shell</span>
+                <span class="bar-track"><i style="width:2.70%"></i></span>
+                <span class="bar-val">1</span>
+              </li>
+            </ul>
+            <p class="panel-note">
+              33 of 37 repositories have a detected primary
+              language. The remaining 4 are previews, installers
+              or repositories holding only assets.
+            </p>
+          </div>
+
+          <div class="panel-half">
+            <h3 class="panel-title">Largest by source</h3>
+            <ul class="bars">
+              <li class="bar-row">
+                <a class="bar-name" href="https://github.com/RootBugs/k4rnportfolio" target="_blank" rel="noopener noreferrer">k4rnportfolio</a>
+                <span class="bar-track"><i style="width:100.00%"></i></span>
+                <span class="bar-val">68.9 MB</span>
+              </li>
+              <li class="bar-row">
+                <a class="bar-name" href="https://github.com/RootBugs/KE3NZ" target="_blank" rel="noopener noreferrer">KE3NZ</a>
+                <span class="bar-track"><i style="width:52.80%"></i></span>
+                <span class="bar-val">36.4 MB</span>
+              </li>
+              <li class="bar-row">
+                <a class="bar-name" href="https://github.com/RootBugs/kwenv0.2model" target="_blank" rel="noopener noreferrer">kwenv0.2model</a>
+                <span class="bar-track"><i style="width:51.56%"></i></span>
+                <span class="bar-val">35.5 MB</span>
+              </li>
+              <li class="bar-row">
+                <a class="bar-name" href="https://github.com/RootBugs/shortsgenerator" target="_blank" rel="noopener noreferrer">shortsgenerator</a>
+                <span class="bar-track"><i style="width:47.34%"></i></span>
+                <span class="bar-val">32.6 MB</span>
+              </li>
+              <li class="bar-row">
+                <a class="bar-name" href="https://github.com/RootBugs/Rootclaude" target="_blank" rel="noopener noreferrer">Rootclaude</a>
+                <span class="bar-track"><i style="width:14.00%"></i></span>
+                <span class="bar-val">9.6 MB</span>
+              </li>
+              <li class="bar-row">
+                <a class="bar-name" href="https://github.com/RootBugs/ragedollrush" target="_blank" rel="noopener noreferrer">ragedollrush</a>
+                <span class="bar-track"><i style="width:5.17%"></i></span>
+                <span class="bar-val">3.6 MB</span>
+              </li>
+            </ul>
+            <p class="panel-note">
+              Repository size includes assets, not just code, so these are an
+              honest upper bound rather than a lines-of-code ranking.
+            </p>
+          </div>
+        </div>
+
+        <div class="panel">
+          <div class="panel-half">
+            <h3 class="panel-title">Licensing</h3>
+            <p class="panel-big"><b>15</b><span>of 37 declare MIT</span></p>
+            <p class="panel-note">
+              declare an explicit MIT licence. The other 22 declare no
+              licence at all, which legally means all rights reserved &mdash; so
+              they are listed for reference, not offered for reuse. A repository
+              with no licence is not open source.
+            </p>
+          </div>
+
+          <div class="panel-half">
+            <h3 class="panel-title">Documentation</h3>
+            <p class="panel-big"><b>34</b><span>of 37 have a description</span></p>
+            <p class="panel-note">
+              carry a description on the repository itself, so the index below
+              is searchable by what each project claims to be. 3
+              have no description and appear by name alone.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="index" class="band">
     <div class="shell grid">
       <p class="margin-label">Index</p>
       <div class="band-body">
         <h2 class="sr-only">Repository index</h2>
         <p class="band-intro">
-          Every remaining public repository, listed plainly with its detected
-          language. Fifteen carry an explicit MIT licence; the rest declare none,
-          so treat them as read-only unless I say otherwise.
+          Every remaining public repository, with its detected language and
+          licence.
         </p>
 
-      <h3 class="sub">@RootBugs <span class="sub-n">28</span></h3>
-      <div class="repos">
-          <a class="repo" href="https://github.com/RootBugs/Rootbugs" target="_blank" rel="noopener noreferrer"><span class="repo-name">RootBugs</span><span class="repo-lang">Python</span></a>
-          <a class="repo" href="https://github.com/RootBugs/consolebugs" target="_blank" rel="noopener noreferrer"><span class="repo-name">consolebugs</span><span class="repo-lang">PowerShell</span></a>
-          <a class="repo" href="https://github.com/RootBugs/githubsecurityaudit" target="_blank" rel="noopener noreferrer"><span class="repo-name">githubsecurityaudit</span><span class="repo-lang">PowerShell</span></a>
-          <a class="repo" href="https://github.com/RootBugs/lineage" target="_blank" rel="noopener noreferrer"><span class="repo-name">lineage</span><span class="repo-lang">Python</span></a>
-          <a class="repo" href="https://github.com/RootBugs/websiteinjectiontester" target="_blank" rel="noopener noreferrer"><span class="repo-name">websiteinjectiontester</span><span class="repo-lang">Python</span></a>
-          <a class="repo" href="https://github.com/RootBugs/prism" target="_blank" rel="noopener noreferrer"><span class="repo-name">prism</span><span class="repo-lang">TypeScript</span></a>
-          <a class="repo" href="https://github.com/RootBugs/BasicLLM" target="_blank" rel="noopener noreferrer"><span class="repo-name">BasicLLM</span><span class="repo-lang">TypeScript</span></a>
-          <a class="repo" href="https://github.com/RootBugs/jailbroke2n" target="_blank" rel="noopener noreferrer"><span class="repo-name">jailbroke2n</span><span class="repo-lang">TypeScript</span></a>
-          <a class="repo" href="https://github.com/RootBugs/Systemprompting" target="_blank" rel="noopener noreferrer"><span class="repo-name">Systemprompting</span><span class="repo-lang">No language detected</span></a>
-          <a class="repo" href="https://github.com/RootBugs/slimweights" target="_blank" rel="noopener noreferrer"><span class="repo-name">slimweights</span><span class="repo-lang">Python</span></a>
-          <a class="repo" href="https://github.com/RootBugs/modelweights" target="_blank" rel="noopener noreferrer"><span class="repo-name">modelweights</span><span class="repo-lang">No language detected</span></a>
-          <a class="repo" href="https://github.com/RootBugs/kwenv0.2model" target="_blank" rel="noopener noreferrer"><span class="repo-name">kwenv0.2model</span><span class="repo-lang">Python</span></a>
-          <a class="repo" href="https://github.com/RootBugs/Rootclaude" target="_blank" rel="noopener noreferrer"><span class="repo-name">Rootclaude</span><span class="repo-lang">TypeScript</span></a>
-          <a class="repo" href="https://github.com/RootBugs/deepscrape" target="_blank" rel="noopener noreferrer"><span class="repo-name">deepscrape</span><span class="repo-lang">Rust</span></a>
-          <a class="repo" href="https://github.com/RootBugs/rootfetch" target="_blank" rel="noopener noreferrer"><span class="repo-name">rootfetch</span><span class="repo-lang">Python</span></a>
-          <a class="repo" href="https://github.com/RootBugs/KE3NZ" target="_blank" rel="noopener noreferrer"><span class="repo-name">KE3NZ</span><span class="repo-lang">Python</span></a>
-          <a class="repo" href="https://github.com/RootBugs/devkit" target="_blank" rel="noopener noreferrer"><span class="repo-name">devkit</span><span class="repo-lang">TypeScript</span></a>
-          <a class="repo" href="https://github.com/RootBugs/gatewaystructure" target="_blank" rel="noopener noreferrer"><span class="repo-name">gatewaystructure</span><span class="repo-lang">TypeScript</span></a>
-          <a class="repo" href="https://github.com/RootBugs/shortsgenerator" target="_blank" rel="noopener noreferrer"><span class="repo-name">shortsgenerator</span><span class="repo-lang">Python</span></a>
-          <a class="repo" href="https://github.com/RootBugs/starsgit" target="_blank" rel="noopener noreferrer"><span class="repo-name">starsgit</span><span class="repo-lang">Python</span></a>
-          <a class="repo" href="https://github.com/RootBugs/TEMP_BYPASS" target="_blank" rel="noopener noreferrer"><span class="repo-name">TEMP_BYPASS</span><span class="repo-lang">Python</span></a>
-          <a class="repo" href="https://github.com/RootBugs/PythonMusic" target="_blank" rel="noopener noreferrer"><span class="repo-name">PythonMusic</span><span class="repo-lang">Python</span></a>
-          <a class="repo" href="https://github.com/RootBugs/ragedollrush" target="_blank" rel="noopener noreferrer"><span class="repo-name">ragedollrush</span><span class="repo-lang">GDScript</span></a>
-          <a class="repo" href="https://github.com/RootBugs/feio" target="_blank" rel="noopener noreferrer"><span class="repo-name">feio</span><span class="repo-lang">TypeScript</span></a>
-          <a class="repo" href="https://github.com/RootBugs/opensocial" target="_blank" rel="noopener noreferrer"><span class="repo-name">opensocial</span><span class="repo-lang">TypeScript</span></a>
-          <a class="repo" href="https://github.com/RootBugs/kwendesign" target="_blank" rel="noopener noreferrer"><span class="repo-name">kwendesign</span><span class="repo-lang">HTML</span></a>
-          <a class="repo" href="https://github.com/RootBugs/ResearchPaper" target="_blank" rel="noopener noreferrer"><span class="repo-name">ResearchPaper</span><span class="repo-lang">HTML</span></a>
-          <a class="repo" href="https://github.com/RootBugs/k4rnportfolio" target="_blank" rel="noopener noreferrer"><span class="repo-name">k4rnportfolio</span><span class="repo-lang">Shell</span></a>
-      </div>
+      <h3 class="sub">@RootBugs <span class="sub-n">28 repositories</span></h3>
+      <ul class="repos">
+          <li><a class="repo" href="https://github.com/RootBugs/Rootbugs" target="_blank" rel="noopener noreferrer"><span class="repo-name">Rootbugs</span><span class="repo-lang">Python</span><span class="repo-lic" title="MIT licensed">MIT</span></a></li>
+          <li><a class="repo" href="https://github.com/RootBugs/rootfetch" target="_blank" rel="noopener noreferrer"><span class="repo-name">rootfetch</span><span class="repo-lang">Python</span></a></li>
+          <li><a class="repo" href="https://github.com/RootBugs/ragedollrush" target="_blank" rel="noopener noreferrer"><span class="repo-name">ragedollrush</span><span class="repo-lang">GDScript</span></a></li>
+          <li><a class="repo" href="https://github.com/RootBugs/kwendesign" target="_blank" rel="noopener noreferrer"><span class="repo-name">kwendesign</span><span class="repo-lang">HTML</span><span class="repo-lic" title="MIT licensed">MIT</span></a></li>
+          <li><a class="repo" href="https://github.com/RootBugs/opensocial" target="_blank" rel="noopener noreferrer"><span class="repo-name">opensocial</span><span class="repo-lang">TypeScript</span></a></li>
+          <li><a class="repo" href="https://github.com/RootBugs/feio" target="_blank" rel="noopener noreferrer"><span class="repo-name">feio</span><span class="repo-lang">TypeScript</span><span class="repo-lic" title="MIT licensed">MIT</span></a></li>
+          <li><a class="repo" href="https://github.com/RootBugs/kwenv0.2model" target="_blank" rel="noopener noreferrer"><span class="repo-name">kwenv0.2model</span><span class="repo-lang">Python</span></a></li>
+          <li><a class="repo" href="https://github.com/RootBugs/PythonMusic" target="_blank" rel="noopener noreferrer"><span class="repo-name">PythonMusic</span><span class="repo-lang">Python</span><span class="repo-lic" title="MIT licensed">MIT</span></a></li>
+          <li><a class="repo" href="https://github.com/RootBugs/KE3NZ" target="_blank" rel="noopener noreferrer"><span class="repo-name">KE3NZ</span><span class="repo-lang">Python</span><span class="repo-lic" title="MIT licensed">MIT</span></a></li>
+          <li><a class="repo" href="https://github.com/RootBugs/TEMP_BYPASS" target="_blank" rel="noopener noreferrer"><span class="repo-name">TEMP_BYPASS</span><span class="repo-lang">Python</span><span class="repo-lic" title="MIT licensed">MIT</span></a></li>
+          <li><a class="repo" href="https://github.com/RootBugs/starsgit" target="_blank" rel="noopener noreferrer"><span class="repo-name">starsgit</span><span class="repo-lang">Python</span></a></li>
+          <li><a class="repo" href="https://github.com/RootBugs/jailbroke2n" target="_blank" rel="noopener noreferrer"><span class="repo-name">jailbroke2n</span><span class="repo-lang">TypeScript</span></a></li>
+          <li><a class="repo" href="https://github.com/RootBugs/githubsecurityaudit" target="_blank" rel="noopener noreferrer"><span class="repo-name">githubsecurityaudit</span><span class="repo-lang">PowerShell</span></a></li>
+          <li><a class="repo" href="https://github.com/RootBugs/websiteinjectiontester" target="_blank" rel="noopener noreferrer"><span class="repo-name">websiteinjectiontester</span><span class="repo-lang">Python</span></a></li>
+          <li><a class="repo" href="https://github.com/RootBugs/lineage" target="_blank" rel="noopener noreferrer"><span class="repo-name">lineage</span><span class="repo-lang">Python</span></a></li>
+          <li><a class="repo" href="https://github.com/RootBugs/consolebugs" target="_blank" rel="noopener noreferrer"><span class="repo-name">consolebugs</span><span class="repo-lang">PowerShell</span></a></li>
+          <li><a class="repo" href="https://github.com/RootBugs/Systemprompting" target="_blank" rel="noopener noreferrer"><span class="repo-name">Systemprompting</span><span class="repo-lang">no language</span></a></li>
+          <li><a class="repo" href="https://github.com/RootBugs/shortsgenerator" target="_blank" rel="noopener noreferrer"><span class="repo-name">shortsgenerator</span><span class="repo-lang">Python</span></a></li>
+          <li><a class="repo" href="https://github.com/RootBugs/BasicLLM" target="_blank" rel="noopener noreferrer"><span class="repo-name">BasicLLM</span><span class="repo-lang">TypeScript</span><span class="repo-lic" title="MIT licensed">MIT</span></a></li>
+          <li><a class="repo" href="https://github.com/RootBugs/devkit" target="_blank" rel="noopener noreferrer"><span class="repo-name">devkit</span><span class="repo-lang">TypeScript</span><span class="repo-lic" title="MIT licensed">MIT</span></a></li>
+          <li><a class="repo" href="https://github.com/RootBugs/Rootclaude" target="_blank" rel="noopener noreferrer"><span class="repo-name">Rootclaude</span><span class="repo-lang">TypeScript</span><span class="repo-lic" title="MIT licensed">MIT</span></a></li>
+          <li><a class="repo" href="https://github.com/RootBugs/deepscrape" target="_blank" rel="noopener noreferrer"><span class="repo-name">deepscrape</span><span class="repo-lang">Rust</span><span class="repo-lic" title="MIT licensed">MIT</span></a></li>
+          <li><a class="repo" href="https://github.com/RootBugs/prism" target="_blank" rel="noopener noreferrer"><span class="repo-name">prism</span><span class="repo-lang">TypeScript</span><span class="repo-lic" title="MIT licensed">MIT</span></a></li>
+          <li><a class="repo" href="https://github.com/RootBugs/slimweights" target="_blank" rel="noopener noreferrer"><span class="repo-name">slimweights</span><span class="repo-lang">Python</span></a></li>
+          <li><a class="repo" href="https://github.com/RootBugs/k4rnportfolio" target="_blank" rel="noopener noreferrer"><span class="repo-name">k4rnportfolio</span><span class="repo-lang">Shell</span><span class="repo-lic" title="MIT licensed">MIT</span></a></li>
+          <li><a class="repo" href="https://github.com/RootBugs/gatewaystructure" target="_blank" rel="noopener noreferrer"><span class="repo-name">gatewaystructure</span><span class="repo-lang">TypeScript</span><span class="repo-lic" title="MIT licensed">MIT</span></a></li>
+          <li><a class="repo" href="https://github.com/RootBugs/ResearchPaper" target="_blank" rel="noopener noreferrer"><span class="repo-name">ResearchPaper</span><span class="repo-lang">HTML</span><span class="repo-lic" title="MIT licensed">MIT</span></a></li>
+          <li><a class="repo" href="https://github.com/RootBugs/modelweights" target="_blank" rel="noopener noreferrer"><span class="repo-name">modelweights</span><span class="repo-lang">no language</span></a></li>
+      </ul>
 
-      <h3 class="sub">@vufq <span class="sub-n">9</span></h3>
-      <div class="repos">
-          <a class="repo" href="https://github.com/vufq/threatlens" target="_blank" rel="noopener noreferrer"><span class="repo-name">threatlens</span><span class="repo-lang">Python</span></a>
-          <a class="repo" href="https://github.com/vufq/kwen-ext" target="_blank" rel="noopener noreferrer"><span class="repo-name">kwen-ext</span><span class="repo-lang">Python</span></a>
-          <a class="repo" href="https://github.com/vufq/Memepage" target="_blank" rel="noopener noreferrer"><span class="repo-name">Memepage</span><span class="repo-lang">HTML</span></a>
-          <a class="repo" href="https://github.com/vufq/feio-in" target="_blank" rel="noopener noreferrer"><span class="repo-name">feio-in</span><span class="repo-lang">CSS</span><span class="repo-self">this site</span></a>
-          <a class="repo" href="https://github.com/vufq/feio" target="_blank" rel="noopener noreferrer"><span class="repo-name">feio</span><span class="repo-lang">TypeScript</span></a>
-          <a class="repo" href="https://github.com/vufq/slimweights" target="_blank" rel="noopener noreferrer"><span class="repo-name">slimweights</span><span class="repo-lang">Python</span></a>
-          <a class="repo" href="https://github.com/vufq/Kwen-design" target="_blank" rel="noopener noreferrer"><span class="repo-name">Kwen-design</span><span class="repo-lang">HTML</span></a>
-          <a class="repo" href="https://github.com/vufq/TEMP_BYPASS" target="_blank" rel="noopener noreferrer"><span class="repo-name">TEMP_BYPASS</span><span class="repo-lang">No language detected</span></a>
-          <a class="repo" href="https://github.com/vufq/virtual" target="_blank" rel="noopener noreferrer"><span class="repo-name">virtual</span><span class="repo-lang">No language detected</span></a>
-      </div>
+      <h3 class="sub">@vufq <span class="sub-n">9 repositories</span></h3>
+      <ul class="repos">
+          <li><a class="repo" href="https://github.com/vufq/feio-in" target="_blank" rel="noopener noreferrer"><span class="repo-name">feio-in</span><span class="repo-lang">HTML</span><span class="repo-self">this site</span></a></li>
+          <li><a class="repo" href="https://github.com/vufq/slimweights" target="_blank" rel="noopener noreferrer"><span class="repo-name">slimweights</span><span class="repo-lang">Python</span></a></li>
+          <li><a class="repo" href="https://github.com/vufq/TEMP_BYPASS" target="_blank" rel="noopener noreferrer"><span class="repo-name">TEMP_BYPASS</span><span class="repo-lang">no language</span></a></li>
+          <li><a class="repo" href="https://github.com/vufq/feio" target="_blank" rel="noopener noreferrer"><span class="repo-name">feio</span><span class="repo-lang">TypeScript</span></a></li>
+          <li><a class="repo" href="https://github.com/vufq/Kwen-design" target="_blank" rel="noopener noreferrer"><span class="repo-name">Kwen-design</span><span class="repo-lang">HTML</span><span class="repo-lic" title="MIT licensed">MIT</span></a></li>
+          <li><a class="repo" href="https://github.com/vufq/threatlens" target="_blank" rel="noopener noreferrer"><span class="repo-name">threatlens</span><span class="repo-lang">Python</span></a></li>
+          <li><a class="repo" href="https://github.com/vufq/kwen-ext" target="_blank" rel="noopener noreferrer"><span class="repo-name">kwen-ext</span><span class="repo-lang">Python</span></a></li>
+          <li><a class="repo" href="https://github.com/vufq/virtual" target="_blank" rel="noopener noreferrer"><span class="repo-name">virtual</span><span class="repo-lang">no language</span></a></li>
+          <li><a class="repo" href="https://github.com/vufq/Memepage" target="_blank" rel="noopener noreferrer"><span class="repo-name">Memepage</span><span class="repo-lang">HTML</span></a></li>
+      </ul>
 
       </div>
     </div>
@@ -401,15 +555,15 @@
             <strong>security research</strong>,
             <strong>LLM infrastructure</strong>, and
             <strong>developer tooling</strong>. They overlap because the same
-            problem keeps showing up in all three — something works, but not in a
-            way you can hand to another person.
+            problem keeps showing up in all three &mdash; something works, but not
+            in a way you can hand to another person.
           </p>
           <p>
             So the output is mostly reports, proxies and command-line tools. A
-            14-phase auditor that ends in an HTML report you can send to someone.
-            A gateway that routes around a dead provider instead of erroring. A
-            scraper that turns a website into a shell command. Model compression
-            that runs on a laptop instead of a GPU rig.
+            14-phase auditor that ends in an HTML report you can send to
+            someone. A gateway that routes around a dead provider instead of
+            erroring. A scraper that turns a website into a shell command. Model
+            compression that runs on a laptop instead of a GPU rig.
           </p>
           <p>
             The through-line is <em>making hard things usable without heavy
@@ -419,7 +573,7 @@
         </div>
         <dl class="facts">
           <div><dt>Working on</dt><dd>Security research, LLM infrastructure, dev tools</dd></div>
-          <div><dt>Mainly</dt><dd>Python, TypeScript, Rust, PowerShell</dd></div>
+          <div><dt>Mainly</dt><dd>Python, TypeScript, HTML, PowerShell</dd></div>
           <div><dt>Licence</dt><dd>MIT on 15 of 37 repositories</dd></div>
           <div><dt>Live</dt><dd><a href="https://kwen.in" target="_blank" rel="noopener noreferrer">kwen.in</a></dd></div>
         </dl>
@@ -456,8 +610,8 @@
     <div class="foot-body">
       <p>
         Hand-written HTML, CSS and vanilla JavaScript. No framework, no build
-        step, no dependencies, no trackers, one theme. Set in Newsreader and
-        JetBrains Mono. Hosted on Vercel.
+        step, no dependencies, no trackers, one theme. Set in Fraunces and
+        JetBrains Mono. Figures read from the GitHub API. Hosted on Vercel.
       </p>
       <p class="foot-fine">
         &copy; 2026 Karan &middot;

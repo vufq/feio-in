@@ -1,32 +1,32 @@
 /* =========================================================================
-   feio.in — one theme, printed catalogue.
+   feio.in — a printed catalogue with counted figures.
 
-   The page is an asymmetric two-column grid: a fixed narrow margin for
-   section labels, and a main column for content. One palette, no
-   dark mode, no theme toggle, no build step.
+   Structure: an asymmetric grid, a fixed margin column for section labels
+   and a main column for text. One theme. Fraunces for reading (variable, with
+   a real optical-size axis so display sizes are drawn at display proportions),
+   JetBrains Mono for labels and figures.
    ========================================================================= */
 
 /* -------------------------------------------------------------------------
-   FONTS — Newsreader for reading, JetBrains Mono for labels. Inter is not
-   used any more; the sans was making the page read like a template.
+   FONTS
    ------------------------------------------------------------------------- */
 @font-face {
-  font-family: "Newsreader";
-  src: url("/assets/fonts/newsreader.woff2") format("woff2");
-  font-weight: 200 800;
+  font-family: "Fraunces";
+  src: url("/assets/fonts/fraunces.woff2") format("woff2-variations");
+  font-weight: 100 900;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
-  font-family: "Newsreader";
-  src: url("/assets/fonts/newsreader-italic.woff2") format("woff2");
-  font-weight: 200 800;
+  font-family: "Fraunces";
+  src: url("/assets/fonts/fraunces-italic.woff2") format("woff2-variations");
+  font-weight: 100 900;
   font-style: italic;
   font-display: swap;
 }
 @font-face {
   font-family: "JetBrains Mono";
-  src: url("/assets/fonts/jetbrains-mono.woff2") format("woff2");
+  src: url("/assets/fonts/jetbrains-mono.woff2") format("woff2-variations");
   font-weight: 100 800;
   font-style: normal;
   font-display: swap;
@@ -36,40 +36,41 @@
    TOKENS
    ------------------------------------------------------------------------- */
 :root {
-  --paper: #fbfaf7;
-  --paper-deep: #f4f2ec;
-  --ink: #14171d;
-  --ink-2: #3d434f;
-  --ink-3: #565d69;
+  --paper: #f6f4ee;
+  --paper-2: #eeeae0;
+  --ink: #171a1f;
+  --ink-2: #3c424d;
+  --ink-3: #545b67;
   --ink-4: #646a73;
-  --line: #c9c4b8;
-  --line-soft: #e7e3da;
-  --accent: #2f6114;
-  --accent-soft: #eaf0e2;
+  --line: #cdc7b9;
+  --line-soft: #e2ddd0;
+  --accent: #7a3d12;
+  --accent-2: #2f6114;
+  --fill: #ddd6c6;
 
-  --serif: "Newsreader", Georgia, "Times New Roman", serif;
+  --serif: "Fraunces", Georgia, "Times New Roman", serif;
   --mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
 
-  --measure: 34rem;
-  --shell: 72rem;
+  --measure: 33rem;
+  --shell: 74rem;
   --margin-col: 10.5rem;
   --gutter: clamp(1.25rem, 4vw, 3rem);
 
-  --step--1: clamp(0.78rem, 0.76rem + 0.1vw, 0.84rem);
-  --step-0: clamp(1rem, 0.97rem + 0.15vw, 1.09rem);
-  --step-1: clamp(1.16rem, 1.1rem + 0.3vw, 1.35rem);
-  --step-2: clamp(1.4rem, 1.28rem + 0.6vw, 1.75rem);
-  --step-3: clamp(1.75rem, 1.5rem + 1.2vw, 2.5rem);
-  --step-4: clamp(2.2rem, 1.7rem + 2.4vw, 3.6rem);
+  --step--1: clamp(0.76rem, 0.74rem + 0.1vw, 0.82rem);
+  --step-0: clamp(1rem, 0.97rem + 0.15vw, 1.08rem);
+  --step-1: clamp(1.14rem, 1.09rem + 0.25vw, 1.3rem);
+  --step-2: clamp(1.35rem, 1.25rem + 0.5vw, 1.7rem);
+  --step-3: clamp(1.7rem, 1.45rem + 1.2vw, 2.5rem);
+  --step-4: clamp(2.3rem, 1.6rem + 3.2vw, 4.4rem);
 
-  --leading-tight: 1.15;
-  --leading-snug: 1.32;
+  --leading-tight: 1.05;
+  --leading-snug: 1.25;
   --leading-normal: 1.6;
-  --leading-relaxed: 1.72;
+  --leading-relaxed: 1.7;
 
-  --tracking-tight: -0.011em;
+  --tracking-tight: -0.02em;
   --tracking-wide: 0.06em;
-  --tracking-wider: 0.12em;
+  --tracking-wider: 0.13em;
 
   --dur-fast: 120ms;
   --dur: 200ms;
@@ -77,6 +78,11 @@
 
   color-scheme: light;
 }
+
+/* Fraunces exposes a real optical-size axis. `font-variation-settings` lets
+   display sizes use display proportions instead of just being scaled up. */
+.lede h1 { font-variation-settings: "SOFT" 0, "WONK" 1, "opsz" 120; }
+.lede h1 em { font-variation-settings: "SOFT" 0, "WONK" 1, "opsz" 120; }
 
 /* -------------------------------------------------------------------------
    RESET
@@ -98,11 +104,10 @@ body {
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
 }
-h1, h2, h3, p, dl, dd, ol, ul, figure { margin: 0; }
-ol, ul { padding: 0; list-style: none; }
+h1, h2, h3, p, dl, dd, ul, ol { margin: 0; }
+ul, ol { padding: 0; list-style: none; }
 a { color: inherit; }
 button { font: inherit; color: inherit; background: none; border: 0; }
-svg { display: block; }
 
 :focus-visible {
   outline: 2px solid var(--accent);
@@ -127,9 +132,7 @@ svg { display: block; }
 .skip:focus { transform: none; }
 
 /* -------------------------------------------------------------------------
-   THE GRID — the structural idea. A fixed margin column carries the section
-   label; the main column carries everything else. On narrow screens the
-   margin column collapses and the label sits inline above its content.
+   THE GRID
    ------------------------------------------------------------------------- */
 .shell {
   width: 100%;
@@ -159,22 +162,20 @@ svg { display: block; }
    ------------------------------------------------------------------------- */
 .head {
   position: sticky; top: 0; z-index: 10;
-  background: color-mix(in srgb, var(--paper) 88%, transparent);
-  backdrop-filter: saturate(1.4) blur(8px);
+  background: color-mix(in srgb, var(--paper) 90%, transparent);
+  backdrop-filter: saturate(1.3) blur(8px);
   border-bottom: 1px solid transparent;
   transition: border-color var(--dur) var(--ease-out);
 }
 .head[data-scrolled="true"] { border-bottom-color: var(--line-soft); }
 .head-inner {
   display: flex; align-items: baseline; justify-content: space-between;
-  gap: 1.5rem;
-  padding-block: 1.1rem;
+  gap: 1.5rem; padding-block: 1.1rem;
 }
 .head-name {
   font: 500 var(--step-0)/1 var(--mono);
   letter-spacing: var(--tracking-wide);
-  text-decoration: none;
-  white-space: nowrap;
+  text-decoration: none; white-space: nowrap;
 }
 .head-name::after {
   content: ""; display: block; height: 1px; background: currentColor;
@@ -186,8 +187,7 @@ svg { display: block; }
 .head-nav a {
   font: 500 var(--step--1)/1 var(--mono);
   letter-spacing: var(--tracking-wide);
-  color: var(--ink-3);
-  text-decoration: none;
+  color: var(--ink-3); text-decoration: none;
   transition: color var(--dur) var(--ease-out);
 }
 .head-nav a:hover { color: var(--accent); }
@@ -195,167 +195,257 @@ svg { display: block; }
 /* -------------------------------------------------------------------------
    LEDE
    ------------------------------------------------------------------------- */
-.lede-section { padding-block: clamp(3.5rem, 11vh, 7rem) clamp(3rem, 8vh, 5rem); }
-.lede { max-width: 44rem; }
+.lede-section { padding-block: clamp(3rem, 10vh, 6.5rem) clamp(2.75rem, 7vh, 4.5rem); }
+.lede { max-width: 46rem; }
 .lede h1 {
   font-size: var(--step-4);
-  line-height: 1.06;
-  letter-spacing: -0.02em;
+  line-height: var(--leading-tight);
   font-weight: 400;
+  letter-spacing: -0.025em;
   text-wrap: balance;
 }
 .lede h1 em { font-style: italic; color: var(--accent); }
 .lede-p {
-  margin-top: 1.6rem;
+  margin-top: 1.5rem;
   max-width: var(--measure);
   font-size: var(--step-1);
   line-height: var(--leading-relaxed);
   color: var(--ink-2);
   text-wrap: pretty;
 }
+.lede-p strong { color: var(--ink); font-weight: 600; }
 .lede-p a { text-decoration-color: var(--line); text-underline-offset: 0.18em; }
 .lede-p a:hover { color: var(--accent); text-decoration-color: var(--accent); }
-.lede-meta {
-  margin-top: 1.75rem;
+
+/* the four counted figures under the lede */
+.lede-facts {
+  margin-top: 2rem;
   padding-top: 1.1rem;
-  border-top: 1px solid var(--line-soft);
-  font: 400 var(--step--1)/var(--leading-relaxed) var(--mono);
-  letter-spacing: var(--tracking-wide);
+  border-top: 1px solid var(--line);
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(8.5rem, 1fr));
+  gap: 1.25rem 1.5rem;
+}
+.lede-facts li {
+  font: 400 var(--step--1)/var(--leading-snug) var(--mono);
+  letter-spacing: 0.02em;
   color: var(--ink-4);
+  display: flex; flex-direction: column; gap: 0.3rem;
+}
+.lede-facts b {
+  font-family: var(--serif);
+  font-variation-settings: "opsz" 40, "WONK" 0;
+  font-size: var(--step-2);
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  color: var(--ink);
 }
 
 /* -------------------------------------------------------------------------
    BANDS
    ------------------------------------------------------------------------- */
 .band {
-  padding-block: clamp(2.75rem, 7vh, 4.5rem);
+  padding-block: clamp(2.5rem, 6.5vh, 4rem);
   border-top: 1px solid var(--line-soft);
 }
 .band-last { border-bottom: 1px solid var(--line-soft); }
-.band-body { max-width: 46rem; }
+.band-body { max-width: 48rem; }
 .band-intro {
   max-width: var(--measure);
-  margin-bottom: 2.25rem;
+  margin-bottom: 2rem;
   color: var(--ink-2);
   text-wrap: pretty;
 }
 
 .sub {
-  margin-top: 2.5rem;
-  margin-bottom: 0.35rem;
+  margin-top: 2.25rem;
+  margin-bottom: 0.3rem;
   font: 500 var(--step--1)/var(--leading-snug) var(--mono);
   letter-spacing: var(--tracking-wider);
   text-transform: uppercase;
   color: var(--ink-4);
 }
 .sub:first-of-type { margin-top: 0; }
-.sub-n { color: var(--ink-4); letter-spacing: var(--tracking-wide); }
+.sub-n { letter-spacing: var(--tracking-wide); }
 
 /* -------------------------------------------------------------------------
-   WORK ENTRIES — numbered paragraphs, not cards. The number sits in the
-   main column's own gutter so the text keeps a constant left edge.
+   COUNTED FIGURES — the graphics. Real numbers, drawn as bars.
    ------------------------------------------------------------------------- */
-.entries { margin: 0; }
-.entry { display: block; padding-block: 1.15rem; text-decoration: none; }
+.panel {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(17rem, 1fr));
+  gap: 0;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+.panel + .panel { border-top: 0; }
+.panel-half { padding: 1.5rem 1.5rem 1.5rem 0; }
+.panel-half + .panel-half { border-left: 1px solid var(--line-soft); padding-left: 1.5rem; }
+.panel-title {
+  font: 500 var(--step--1)/var(--leading-snug) var(--mono);
+  letter-spacing: var(--tracking-wider);
+  text-transform: uppercase;
+  color: var(--ink);
+  margin-bottom: 1rem;
+}
+.panel-note {
+  margin-top: 1rem;
+  font-size: 0.92rem;
+  line-height: var(--leading-relaxed);
+  color: var(--ink-3);
+  max-width: 30rem;
+  text-wrap: pretty;
+}
+.panel-big {
+  font-family: var(--serif);
+  font-variation-settings: "opsz" 72, "WONK" 0;
+  font-size: clamp(2.6rem, 1.8rem + 2.6vw, 3.6rem);
+  line-height: 0.95;
+  letter-spacing: -0.03em;
+  color: var(--ink);
+  display: flex; align-items: baseline; gap: 0.3rem;
+}
+.panel-big b { font-weight: 500; }
+.panel-big span {
+  font-family: var(--mono);
+  font-size: 0.8rem;
+  font-variation-settings: normal;
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  color: var(--ink-4);
+}
+
+.bars { font: 400 var(--step--1)/1 var(--mono); }
+.bar-row {
+  display: grid;
+  grid-template-columns: minmax(4.5rem, 7rem) minmax(3rem, 1fr) 3.25rem;
+  align-items: center;
+  gap: 0.75rem;
+  padding-block: 0.42rem;
+}
+.bar-name {
+  color: var(--ink-2);
+  text-decoration: none;
+  overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+}
+a.bar-name { text-decoration: underline; text-decoration-color: transparent; text-underline-offset: 0.15em; }
+a.bar-name:hover { color: var(--accent); text-decoration-color: var(--accent); }
+.bar-track { height: 0.7rem; background: var(--paper-2); position: relative; }
+.bar-track i {
+  position: absolute; inset: 0 auto 0 0;
+  display: block; background: var(--fill);
+  border-right: 2px solid var(--ink);
+  transition: background var(--dur) var(--ease-out);
+}
+.bar-row:hover .bar-track i { background: var(--accent-2); border-right-color: var(--accent); }
+.bar-val {
+  color: var(--ink-4);
+  text-align: right;
+  font-size: 0.86em;
+  letter-spacing: 0.01em;
+}
+
+/* -------------------------------------------------------------------------
+   WORK ENTRIES
+   ------------------------------------------------------------------------- */
+.entry { display: block; padding-block: 1.1rem; text-decoration: none; }
 .entry + .entry { border-top: 1px solid var(--line-soft); }
 .entry-n {
   display: block;
   font: 400 0.72rem/1 var(--mono);
   letter-spacing: var(--tracking-wide);
   color: var(--ink-4);
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.45rem;
 }
 .entry-name {
   display: inline-block;
   font-size: var(--step-1);
   font-weight: 500;
+  font-variation-settings: "opsz" 20;
   line-height: var(--leading-snug);
   letter-spacing: var(--tracking-tight);
   text-decoration: underline;
   text-decoration-color: transparent;
   text-decoration-thickness: 1px;
-  text-underline-offset: 0.16em;
-  transition: text-decoration-color var(--dur) var(--ease-out), color var(--dur) var(--ease-out);
+  text-underline-offset: 0.15em;
+  transition: text-decoration-color var(--dur) var(--ease-out);
 }
 .ext {
-  display: inline-block;
-  margin-left: 0.28em;
-  font-size: 0.72em;
-  vertical-align: 0.18em;
+  display: inline-block; margin-left: 0.26em;
+  font-size: 0.7em; vertical-align: 0.2em;
   color: var(--ink-4);
   transition: transform var(--dur) var(--ease-out), color var(--dur) var(--ease-out);
 }
 .entry:hover .entry-name { text-decoration-color: var(--accent); }
-.entry:hover { color: var(--ink); }
 .entry:hover .ext { color: var(--accent); transform: translate(0.1em, -0.1em); }
 .entry-desc {
-  display: block;
-  max-width: var(--measure);
-  margin-top: 0.4rem;
-  color: var(--ink-2);
-  text-wrap: pretty;
+  display: block; max-width: var(--measure); margin-top: 0.35rem;
+  color: var(--ink-2); text-wrap: pretty;
 }
 .entry-meta {
-  display: block;
-  margin-top: 0.5rem;
+  display: block; margin-top: 0.45rem;
   font: 400 var(--step--1)/var(--leading-snug) var(--mono);
-  letter-spacing: 0.02em;
-  color: var(--ink-4);
+  letter-spacing: 0.02em; color: var(--ink-4);
+}
+.entry-facts {
+  display: inline-block; margin-top: 0.5rem; padding: 0.1rem 0.45rem;
+  font: 500 0.7rem/1.5 var(--mono);
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  color: var(--accent-2);
+  border: 1px solid color-mix(in srgb, var(--accent-2) 35%, transparent);
+  border-radius: 2px;
 }
 
 /* -------------------------------------------------------------------------
-   REPOSITORY INDEX — a tight typographic list, not pills.
+   INDEX
    ------------------------------------------------------------------------- */
 .repos {
   columns: 2;
-  column-gap: clamp(1.5rem, 3vw, 2.75rem);
-  font: 400 var(--step--1)/1.9 var(--mono);
+  column-gap: clamp(1.5rem, 3vw, 2.5rem);
+  font: 400 var(--step--1)/1.95 var(--mono);
   letter-spacing: 0.01em;
 }
 .repo {
-  display: flex; align-items: baseline; gap: 0.6rem;
-  padding-block: 0.15rem;
-  text-decoration: none;
+  display: flex; align-items: baseline; gap: 0.5rem;
+  padding-block: 0.1rem; text-decoration: none;
   break-inside: avoid;
 }
 .repo-name {
   color: var(--ink);
-  text-decoration: underline;
-  text-decoration-color: transparent;
-  text-underline-offset: 0.16em;
+  text-decoration: underline; text-decoration-color: transparent;
+  text-underline-offset: 0.15em;
   transition: text-decoration-color var(--dur) var(--ease-out), color var(--dur) var(--ease-out);
 }
 .repo:hover .repo-name { color: var(--accent); text-decoration-color: var(--accent); }
 .repo-lang { color: var(--ink-4); font-size: 0.86em; }
-.repo-self {
-  margin-left: auto;
-  font-size: 0.8em;
-  color: var(--accent);
+.repo-lic {
+  color: var(--accent-2); font-size: 0.78em;
   letter-spacing: var(--tracking-wide);
-  text-transform: uppercase;
+}
+.repo-self {
+  margin-left: auto; font-size: 0.78em; color: var(--ink-4);
+  letter-spacing: var(--tracking-wide); text-transform: uppercase;
 }
 
 /* -------------------------------------------------------------------------
    ABOUT
    ------------------------------------------------------------------------- */
-.prose { max-width: var(--measure); }
-.prose p + p { margin-top: 1.15rem; }
-.prose { color: var(--ink-2); text-wrap: pretty; }
+.prose { max-width: var(--measure); color: var(--ink-2); text-wrap: pretty; }
+.prose p + p { margin-top: 1.1rem; }
 .prose strong { color: var(--ink); font-weight: 600; }
 .prose em { font-style: italic; color: var(--ink); }
 
 .facts {
-  margin-top: 2.5rem;
-  padding-top: 1.25rem;
+  margin-top: 2.25rem; padding-top: 1.1rem;
   border-top: 1px solid var(--line-soft);
   font: 400 var(--step--1)/var(--leading-relaxed) var(--mono);
   letter-spacing: 0.02em;
 }
 .facts > div {
-  display: grid;
-  grid-template-columns: 8.5rem minmax(0, 1fr);
-  gap: 1rem;
-  padding-block: 0.4rem;
+  display: grid; grid-template-columns: 8.5rem minmax(0, 1fr);
+  gap: 1rem; padding-block: 0.35rem;
 }
 .facts > div + div { border-top: 1px solid var(--line-soft); }
 .facts dt { color: var(--ink-4); letter-spacing: var(--tracking-wide); text-transform: uppercase; }
@@ -368,75 +458,67 @@ svg { display: block; }
    ------------------------------------------------------------------------- */
 .contact-p {
   max-width: var(--measure);
-  font-size: var(--step-1);
-  line-height: var(--leading-relaxed);
-  color: var(--ink-2);
-  text-wrap: pretty;
+  font-size: var(--step-1); line-height: var(--leading-relaxed);
+  color: var(--ink-2); text-wrap: pretty;
 }
-.contact-alt { margin-top: 1rem; font-size: var(--step-0); color: var(--ink-3); }
+.contact-alt { margin-top: 0.9rem; font-size: var(--step-0); color: var(--ink-3); }
+.contact-alt a { color: var(--ink); text-decoration-color: var(--line); text-underline-offset: 0.18em; }
+.contact-alt a:hover { color: var(--accent); }
 .contact-mail {
-  color: var(--ink);
-  text-decoration: underline;
-  text-decoration-color: var(--accent);
-  text-decoration-thickness: 1px;
-  text-underline-offset: 0.18em;
-  white-space: nowrap;
+  color: var(--ink); white-space: nowrap;
+  text-decoration: underline; text-decoration-color: var(--accent);
+  text-decoration-thickness: 1px; text-underline-offset: 0.18em;
 }
 .contact-mail:hover { color: var(--accent); }
 .copy {
-  margin-left: 0.5rem;
-  padding: 0.1rem 0.4rem;
-  font: 500 0.72rem/1.5 var(--mono);
-  letter-spacing: var(--tracking-wide);
-  text-transform: uppercase;
+  margin-left: 0.4rem; padding: 0.1rem 0.4rem;
+  font: 500 0.7rem/1.5 var(--mono);
+  letter-spacing: var(--tracking-wide); text-transform: uppercase;
   color: var(--ink-4);
-  border: 1px solid var(--line);
-  border-radius: 2px;
-  cursor: pointer;
-  vertical-align: 0.1em;
+  border: 1px solid var(--line); border-radius: 2px;
+  cursor: pointer; vertical-align: 0.1em;
   transition: color var(--dur) var(--ease-out), border-color var(--dur) var(--ease-out);
 }
 .copy:hover { color: var(--accent); border-color: var(--accent); }
-.copy[data-copied="true"] { color: var(--accent); border-color: var(--accent); }
+.copy[data-copied="true"] { color: var(--accent-2); border-color: var(--accent-2); }
 
 /* -------------------------------------------------------------------------
-   FOOTER — the colophon. Small, quiet, no giant wordmark.
+   FOOTER
    ------------------------------------------------------------------------- */
-.foot { padding-block: clamp(2.5rem, 6vh, 3.5rem); background: var(--paper-deep); }
+.foot { padding-block: clamp(2.25rem, 5.5vh, 3.25rem); background: var(--paper-2); }
 .foot-body { max-width: var(--measure); }
 .foot-body p { color: var(--ink-3); text-wrap: pretty; }
 .foot-fine {
-  margin-top: 1.1rem;
+  margin-top: 1rem;
   font: 400 var(--step--1)/var(--leading-relaxed) var(--mono);
-  letter-spacing: 0.02em;
-  color: var(--ink-4);
+  letter-spacing: 0.02em; color: var(--ink-4);
 }
 .foot-fine a { text-decoration-color: var(--line); text-underline-offset: 0.18em; }
 .foot-fine a:hover { color: var(--accent); text-decoration-color: var(--accent); }
 
 /* -------------------------------------------------------------------------
-   RESPONSIVE — below 820px the margin column stops being a column and
-   becomes a label sitting above its section.
+   RESPONSIVE
    ------------------------------------------------------------------------- */
+@media (max-width: 900px) {
+  .panel-half + .panel-half { border-left: 0; border-top: 1px solid var(--line-soft); padding-left: 0; }
+}
 @media (max-width: 820px) {
-  .grid {
-    grid-template-columns: minmax(0, 1fr);
-    gap: 1rem;
-  }
+  .grid { grid-template-columns: minmax(0, 1fr); gap: 1rem; }
   .grid > *, .margin-label { grid-column: 1; }
   .margin-label { padding-top: 0; }
-  .band { padding-block: 2.5rem; }
-  .lede-section { padding-block: 2.75rem 2.5rem; }
+  .band { padding-block: 2.25rem; }
+  .lede-section { padding-block: 2.5rem 2.25rem; }
   .repos { columns: 1; }
-  .facts > div { grid-template-columns: minmax(0, 1fr); gap: 0.2rem; }
-  .head-inner { flex-direction: column; align-items: flex-start; gap: 0.6rem; padding-block: 0.9rem; }
-  .head-nav { gap: 1.15rem; }
-  .entry { padding-block: 1rem; }
+  .facts > div { grid-template-columns: minmax(0, 1fr); gap: 0.15rem; }
+  .head-inner { flex-direction: column; align-items: flex-start; gap: 0.55rem; padding-block: 0.9rem; }
+  .head-nav { gap: 1.1rem; }
+  .entry { padding-block: 0.95rem; }
+  .bar-row { grid-template-columns: minmax(4rem, 6rem) minmax(2.5rem, 1fr) 3rem; gap: 0.6rem; }
 }
-
 @media (max-width: 420px) {
-  .head-nav { gap: 0.9rem; font-size: 0.72rem; }
-  .lede-meta { line-height: 1.9; }
+  .head-nav { gap: 0.85rem; font-size: 0.72rem; }
+  .lede-facts { grid-template-columns: repeat(2, 1fr); }
+  .panel-half { padding-right: 0; }
 }
 
 /* -------------------------------------------------------------------------
@@ -453,22 +535,25 @@ svg { display: block; }
 }
 
 /* -------------------------------------------------------------------------
-   PRINT — a catalogue should print like a catalogue.
+   PRINT
    ------------------------------------------------------------------------- */
 @media print {
   :root {
-    --paper: #fff; --paper-deep: #fff;
+    --paper: #fff; --paper-2: #fff;
     --ink: #000; --ink-2: #222; --ink-3: #444; --ink-4: #555;
-    --line: #bbb; --line-soft: #ddd; --accent: #244d0e;
+    --line: #bbb; --line-soft: #ddd; --accent: #6a3410; --accent-2: #244d0e;
+    --fill: #ddd;
   }
   .head, .skip, .copy { display: none !important; }
   .grid { grid-template-columns: 8.5rem minmax(0, 1fr); }
-  .grid > *, .margin-label { grid-column: auto; }
+  .grid > * { grid-column: 2; }
   .margin-label { grid-column: 1; }
-  .band { padding-block: 1.25rem; break-inside: auto; }
-  .entry, .repo, .facts > div { break-inside: avoid; }
+  .band { padding-block: 1.1rem; }
+  .entry, .repo, .bar-row, .panel-half { break-inside: avoid; }
+  .panel-half + .panel-half { border-left: 0; border-top: 1px solid #ddd; padding-left: 0; }
   .repos { columns: 2; }
   a[href^="http"]::after { content: " (" attr(href) ")"; font-size: 0.72em; color: #555; word-break: break-all; }
-  .foot-fine a::after, .lede-p a::after, .facts a::after, .contact-alt a::after { content: ""; }
+  .foot-fine a::after, .lede-p a::after, .facts a::after,
+  .contact-alt a::after, .bar-name::after { content: ""; }
   .foot { background: #fff; }
 }
