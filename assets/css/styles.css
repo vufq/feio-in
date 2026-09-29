@@ -237,6 +237,12 @@ h1 { font-size: clamp(30px, 6.4vw, 54px); margin-bottom: .38em; }
 }
 
 /* ---------- work ---------- */
+.group-title {
+  font-size: 13px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase;
+  color: var(--ink-faint); margin: 40px 0 15px;
+}
+.group-title:first-of-type { margin-top: 0; }
+
 .work-grid { display: grid; gap: 16px; grid-template-columns: repeat(auto-fit, minmax(288px, 1fr)); }
 .work-card {
   display: flex; flex-direction: column;

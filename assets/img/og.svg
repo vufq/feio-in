@@ -6,9 +6,10 @@
     </linearGradient>
   </defs>
   <rect width="1200" height="630" fill="#0b0b0f"/>
-  <text x="80" y="300" font-family="ui-sans-serif, system-ui, Segoe UI, Helvetica, Arial, sans-serif" font-size="82" font-weight="700" fill="#eceef4">Karan</text>
-  <text x="80" y="372" font-family="ui-sans-serif, system-ui, Segoe UI, Helvetica, Arial, sans-serif" font-size="38" fill="url(#g)">AI tooling · Security · Web products</text>
-  <rect x="80" y="420" width="120" height="6" rx="3" fill="url(#g)"/>
-  <text x="80" y="500" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="26" fill="#6f7488">github.com/vufq</text>
-  <text x="80" y="545" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="26" fill="#6f7488">feio.in</text>
+  <text x="80" y="270" font-family="ui-sans-serif, system-ui, Segoe UI, Helvetica, Arial, sans-serif" font-size="76" font-weight="700" fill="#eceef4">Karan</text>
+  <text x="80" y="340" font-family="ui-sans-serif, system-ui, Segoe UI, Helvetica, Arial, sans-serif" font-size="36" font-weight="600" fill="url(#g)">Security Research · AI Tooling · Open Source</text>
+  <rect x="80" y="382" width="130" height="6" rx="3" fill="url(#g)"/>
+  <text x="80" y="470" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="25" fill="#6f7488">github.com/RootBugs</text>
+  <text x="80" y="515" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="25" fill="#6f7488">github.com/vufq</text>
+  <text x="80" y="560" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="25" fill="#6f7488">kwen.in</text>
 </svg>
