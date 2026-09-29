@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- TODO: replace "Karan" / tagline / description with your real details -->
+<title>Karan — Developer Portfolio</title>
+<meta name="description" content="Portfolio of Karan — developer building AI tooling, security utilities and web products. Projects, source code and contact links.">
+<meta name="author" content="Karan">
+<meta name="theme-color" content="#0b0b0f" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<link rel="canonical" href="https://feio.in/">
+
+<meta property="og:type" content="profile">
+<meta property="og:url" content="https://feio.in/">
+<meta property="og:title" content="Karan — Developer Portfolio">
+<meta property="og:description" content="Developer building AI tooling, security utilities and web products. Projects, source code and contact links.">
+<meta property="og:image" content="https://feio.in/assets/img/og.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Karan — Developer Portfolio">
+<meta name="twitter:description" content="Developer building AI tooling, security utilities and web products.">
+<meta name="twitter:image" content="https://feio.in/assets/img/og.svg">
+
+<link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/assets/img/favicon.svg">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="stylesheet" href="/assets/css/styles.css">
+<script>
+(function(){try{var t=localStorage.getItem("theme");if(t==="light"||(!t&&window.matchMedia("(prefers-color-scheme: light)").matches)){document.documentElement.setAttribute("data-theme","light");}}catch(e){}})();
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": "https://feio.in/#person",
+      "name": "Karan",
+      "url": "https://feio.in/",
+      "sameAs": [
+        "https://github.com/vufq",
+        "https://kwen.in"
+      ],
+      "knowsAbout": ["Python", "TypeScript", "JavaScript", "AI/ML tooling", "Security research", "Next.js"]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://feio.in/#website",
+      "url": "https://feio.in/",
+      "name": "Karan — Developer Portfolio",
+      "inLanguage": "en"
+    },
+    {
+      "@type": "ProfilePage",
+      "@id": "https://feio.in/#profilepage",
+      "url": "https://feio.in/",
+      "about": { "@id": "https://feio.in/#person" },
+      "isPartOf": { "@id": "https://feio.in/#website" }
+    }
+  ]
+}
+</script>
+</head>
+
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="site-head" id="top">
+  <div class="wrap head-inner">
+    <a class="brand" href="#top">
+      <span class="brand-mark" aria-hidden="true">&lt;/&gt;</span>
+      <span class="brand-text">Karan</span>
+    </a>
+
+    <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="primaryNav" aria-label="Open menu">
+      <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+    </button>
+
+    <nav class="nav" id="primaryNav" aria-label="Primary">
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#work">Work</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle colour theme">
+        <svg class="ico-sun" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><g stroke-linecap="round"><path d="M12 2.6v2.4M12 19v2.4M2.6 12h2.4M19 12h2.4M5.4 5.4l1.7 1.7M16.9 16.9l1.7 1.7M18.6 5.4l-1.7 1.7M7.1 16.9l-1.7 1.7"/></g></svg>
+        <svg class="ico-moon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M20 14.2A8.4 8.4 0 0 1 9.8 4 8.4 8.4 0 1 0 20 14.2Z"/></svg>
+      </button>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- ============ HERO ============ -->
+  <section class="hero">
+    <div class="wrap hero-inner">
+      <p class="eyebrow reveal"><span class="dot" aria-hidden="true"></span> Available for new work</p>
+
+      <h1 class="reveal">
+        Hi, I'm <span class="grad">Karan</span>.<br>
+        I build AI tooling, security utilities<br class="br-lg"> and web products.
+      </h1>
+
+      <!-- TODO: rewrite this paragraph as your real bio -->
+      <p class="lede reveal">
+        Developer working across Python and TypeScript. I like problems that sit at the
+        intersection of systems and security — model compression, recon tooling, and
+        shipping real products to production.
+      </p>
+
+      <div class="cta reveal">
+        <a class="btn btn-primary" href="#work">View my work</a>
+        <!-- TODO: drop a real PDF at /resume/karan-resume.pdf and it will just work -->
+        <a class="btn btn-ghost" href="/resume/karan-resume.pdf" download>Download résumé</a>
+        <a class="btn btn-ghost" href="https://github.com/vufq" target="_blank" rel="noopener noreferrer">
+          GitHub <span class="ext" aria-hidden="true">↗</span>
+        </a>
+      </div>
+
+      <ul class="hero-meta reveal">
+        <li><strong>21</strong> public repos</li>
+        <li><strong>Python</strong> &amp; <strong>TypeScript</strong></li>
+        <li><strong>Next.js</strong> &amp; Vercel in production</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ============ ABOUT ============ -->
+  <section id="about" class="section">
+    <div class="wrap">
+      <h2 class="section-title reveal">About</h2>
+      <div class="about-grid">
+        <div class="reveal">
+          <!-- TODO: make this your real story -->
+          <p>
+            I build software that solves concrete problems — usually in Python for tooling
+            and research work, and in TypeScript when it needs to reach users.
+          </p>
+          <p>
+            A few things I care about: keeping tools usable on ordinary hardware instead of
+            requiring a cluster, treating security as something you design for rather than
+            bolt on, and shipping small complete products rather than endless prototypes.
+          </p>
+          <p>
+            Most of my work is public. If something here is useful to you, the source is
+            linked on every project.
+          </p>
+        </div>
+        <aside class="facts reveal">
+          <dl>
+            <div><dt>Focus</dt><dd>AI tooling, security utilities, web products</dd></div>
+            <div><dt>Languages</dt><dd>Python, TypeScript, JavaScript, HTML, CSS</dd></div>
+            <div><dt>Stack</dt><dd>Next.js, Vercel, Node.js, GitHub Actions</dd></div>
+            <div><dt>Based in</dt><dd>India <span class="todo-inline">TODO</span></dd></div>
+            <div><dt>Status</dt><dd>Open to internships &amp; full-time roles</dd></div>
+          </dl>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SKILLS ============ -->
+  <section id="skills" class="section section-alt">
+    <div class="wrap">
+      <h2 class="section-title reveal">Skills</h2>
+      <div class="skills-grid">
+        <article class="skill-card reveal">
+          <h3>Languages</h3>
+          <ul class="tags">
+            <li>Python</li><li>TypeScript</li><li>JavaScript</li><li>HTML</li><li>CSS</li><li>SQL</li><li>Shell</li>
+          </ul>
+        </article>
+        <article class="skill-card reveal">
+          <h3>AI &amp; data</h3>
+          <ul class="tags">
+            <li>Model compression</li><li>GGUF quantisation</li><li>LLM tooling</li><li>Ollama</li><li>Python</li><li>Hugging Face</li>
+          </ul>
+        </article>
+        <article class="skill-card reveal">
+          <h3>Web</h3>
+          <ul class="tags">
+            <li>Next.js</li><li>React</li><li>Tailwind CSS</li><li>TypeScript</li><li>Vercel</li><li>REST APIs</li>
+          </ul>
+        </article>
+        <article class="skill-card reveal">
+          <h3>Security &amp; infra</h3>
+          <ul class="tags">
+            <li>Threat modelling</li><li>Recon tooling</li><li>Linux</li><li>Git</li><li>GitHub Actions</li><li>Docker</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ WORK ============ -->
+  <section id="work" class="section">
+    <div class="wrap">
+      <h2 class="section-title reveal">Selected work</h2>
+      <p class="section-sub reveal">Everything below is public — code and live demos are linked on each card.</p>
+
+      <div class="work-grid">
+
+        <article class="work-card work-featured reveal">
+          <div class="work-head">
+            <h3>Kwen</h3>
+            <span class="badge">Live</span>
+          </div>
+          <p class="work-desc">
+            A Next.js web product deployed in production on Vercel. The largest and most
+            actively developed project in my portfolio.
+          </p>
+          <ul class="work-tech"><li>TypeScript</li><li>Next.js</li><li>Vercel</li></ul>
+          <div class="work-links">
+            <a href="https://kwen.in" target="_blank" rel="noopener noreferrer">Live site <span class="ext">↗</span></a>
+            <a href="https://github.com/vufq/kwen" target="_blank" rel="noopener noreferrer">Source <span class="ext">↗</span></a>
+          </div>
+        </article>
+
+        <article class="work-card reveal">
+          <div class="work-head"><h3>SlimWeights</h3></div>
+          <p class="work-desc">
+            Model compression toolkit that shrinks AI model weights (GGUF) without losing
+            quality. Runs on any ordinary PC or laptop rather than needing a GPU rig.
+            Supports Q2_K through Q8_0 quantisation.
+          </p>
+          <ul class="work-tech"><li>Python</li><li>GGUF</li><li>Quantisation</li></ul>
+          <div class="work-links">
+            <a href="https://github.com/vufq/slimweights" target="_blank" rel="noopener noreferrer">Source <span class="ext">↗</span></a>
+          </div>
+        </article>
+
+        <article class="work-card reveal">
+          <div class="work-head"><h3>ThreatLens</h3></div>
+          <p class="work-desc">
+            Shows your system through an attacker's eyes — a hacker-perspective security
+            analysis tool for finding exposure before someone else does.
+          </p>
+          <ul class="work-tech"><li>Python</li><li>Security</li><li>Recon</li></ul>
+          <div class="work-links">
+            <a href="https://github.com/vufq/threatlens" target="_blank" rel="noopener noreferrer">Source <span class="ext">↗</span></a>
+          </div>
+        </article>
+
+        <article class="work-card reveal">
+          <div class="work-head"><h3>kwen-ext</h3></div>
+          <p class="work-desc">
+            Media extractor toolkit — pulls video streams, direct download links and metadata
+            off streaming sites so you can grab media without guessing at the URL.
+          </p>
+          <ul class="work-tech"><li>Python</li><li>CLI</li><li>Media</li></ul>
+          <div class="work-links">
+            <a href="https://github.com/vufq/kwen-ext" target="_blank" rel="noopener noreferrer">Source <span class="ext">↗</span></a>
+          </div>
+        </article>
+
+        <article class="work-card reveal">
+          <div class="work-head"><h3>Kwen-Contra</h3></div>
+          <p class="work-desc">
+            Active Python side-project. Still in build — most recently updated today.
+          </p>
+          <ul class="work-tech"><li>Python</li></ul>
+          <div class="work-links">
+            <a href="https://github.com/vufq/Kwen-contra" target="_blank" rel="noopener noreferrer">Source <span class="ext">↗</span></a>
+          </div>
+        </article>
+
+        <article class="work-card reveal">
+          <div class="work-head"><h3>TempBypass</h3></div>
+          <p class="work-desc">
+            Gmail-style dashboard for anti-disposable email generation, with an OTP inbox,
+            browser fingerprinting and detection-risk analysis.
+          </p>
+          <ul class="work-tech"><li>Python</li><li>Fingerprinting</li><li>Dashboard</li></ul>
+          <div class="work-links">
+            <a href="https://github.com/vufq/TEMP_BYPASS" target="_blank" rel="noopener noreferrer">Source <span class="ext">↗</span></a>
+          </div>
+        </article>
+
+        <article class="work-card reveal">
+          <div class="work-head"><h3>Memepage</h3></div>
+          <p class="work-desc">
+            A meme finder for searching memes, clips and GIFs by what you're looking for.
+          </p>
+          <ul class="work-tech"><li>HTML</li><li>CSS</li><li>JavaScript</li></ul>
+          <div class="work-links">
+            <a href="https://github.com/vufq/Memepage" target="_blank" rel="noopener noreferrer">Source <span class="ext">↗</span></a>
+          </div>
+        </article>
+
+        <article class="work-card reveal">
+          <div class="work-head"><h3>Virtual</h3></div>
+          <p class="work-desc">
+            A social media platform concept. Early stage.
+          </p>
+          <ul class="work-tech"><li>Web</li></ul>
+          <div class="work-links">
+            <a href="https://github.com/vufq/virtual" target="_blank" rel="noopener noreferrer">Source <span class="ext">↗</span></a>
+          </div>
+        </article>
+
+      </div>
+
+      <p class="work-more reveal">
+        <a class="link-arrow" href="https://github.com/vufq?tab=repositories" target="_blank" rel="noopener noreferrer">
+          See all 21 repositories <span class="ext" aria-hidden="true">↗</span>
+        </a>
+      </p>
+    </div>
+  </section>
+
+  <!-- ============ EXPERIENCE ============ -->
+  <section id="experience" class="section section-alt">
+    <div class="wrap">
+      <h2 class="section-title reveal">Experience</h2>
+      <!-- TODO: replace this whole block with your real roles, education and dates -->
+      <div class="timeline">
+
+        <article class="tl-item reveal">
+          <p class="tl-when">2024 — present</p>
+          <h3>Independent developer</h3>
+          <p class="tl-where">Self-directed</p>
+          <p>
+            Building and shipping open-source tools in Python and TypeScript, and running
+            production web apps on Vercel. <span class="todo-inline">TODO — replace with your real role</span>
+          </p>
+        </article>
+
+        <article class="tl-item reveal">
+          <p class="tl-when">Add yours</p>
+          <h3>Role or internship</h3>
+          <p class="tl-where">Company name</p>
+          <p>
+            One or two lines on what you owned and what changed because of it.
+            <span class="todo-inline">TODO</span>
+          </p>
+        </article>
+
+        <article class="tl-item reveal">
+          <p class="tl-when">Add yours</p>
+          <h3>Education</h3>
+          <p class="tl-where">School / university</p>
+          <p>
+            Degree, field, and anything genuinely relevant you studied.
+            <span class="todo-inline">TODO</span>
+          </p>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CONTACT ============ -->
+  <section id="contact" class="section">
+    <div class="wrap">
+      <h2 class="section-title reveal">Contact</h2>
+      <p class="section-sub reveal">
+        Open to internships and full-time roles. The fastest way to reach me is GitHub.
+      </p>
+
+      <div class="contact-grid">
+        <!-- TODO: set your real email here -->
+        <a class="contact-card reveal" href="mailto:tarkarnisha13@gmail.com">
+          <span class="c-label">Email</span>
+          <span class="c-value">tarkarnisha13@gmail.com</span>
+        </a>
+
+        <a class="contact-card reveal" href="https://github.com/vufq" target="_blank" rel="noopener noreferrer">
+          <span class="c-label">GitHub</span>
+          <span class="c-value">github.com/vufq <span class="ext">↗</span></span>
+        </a>
+
+        <a class="contact-card reveal" href="https://kwen.in" target="_blank" rel="noopener noreferrer">
+          <span class="c-label">Kwen</span>
+          <span class="c-value">kwen.in <span class="ext">↗</span></span>
+        </a>
+
+        <!-- TODO: add the rest of your real links (X, LinkedIn, Instagram, Discord, Telegram) -->
+        <div class="contact-card contact-todo reveal">
+          <span class="c-label">More</span>
+          <span class="c-value">Add your X / LinkedIn / Discord <span class="todo-inline">TODO</span></span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-foot">
+  <div class="wrap foot-inner">
+    <p>&copy; <span id="year">2026</span> Karan. Built by hand, no framework.</p>
+    <p class="foot-links">
+      <a href="https://github.com/vufq" target="_blank" rel="noopener noreferrer">GitHub</a>
+      <a href="https://kwen.in" target="_blank" rel="noopener noreferrer">Kwen</a>
+      <a href="/sitemap.xml">Sitemap</a>
+    </p>
+  </div>
+</footer>
+
+<script src="/assets/js/main.js"></script>
+</body>
+</html>

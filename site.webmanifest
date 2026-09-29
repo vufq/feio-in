@@ -1,0 +1,17 @@
+{
+  "name": "Karan — Developer Portfolio",
+  "short_name": "Karan",
+  "description": "Portfolio of Karan — AI tooling, security utilities and web products.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0b0b0f",
+  "theme_color": "#0b0b0f",
+  "icons": [
+    {
+      "src": "/assets/img/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}
