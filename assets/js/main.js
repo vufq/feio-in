@@ -1,25 +1,9 @@
-/* feio.in — interactions. There is one theme, so no theme logic; four nav
-   links that fit on a phone line, so no menu toggle; content is visible by
-   default, so no scroll reveal. What remains is the copy button and the
-   sticky-header border. Vanilla, no dependencies. */
+/* feio.in — interactions. There is one theme, so no theme logic; three nav
+   links that fit on a phone line, so no menu toggle; the masthead scrolls
+   away, so no sticky bar; content is visible by default, so no scroll
+   reveal. What remains is the copy button. Vanilla, no dependencies. */
 (function () {
   "use strict";
-
-  /* ---------- sticky header border ---------- */
-  var head = document.querySelector(".head");
-  if (head) {
-    var ticking = false;
-    var onScroll = function () {
-      if (ticking) return;
-      ticking = true;
-      requestAnimationFrame(function () {
-        head.setAttribute("data-scrolled", String(window.scrollY > 8));
-        ticking = false;
-      });
-    };
-    window.addEventListener("scroll", onScroll, { passive: true });
-    onScroll();
-  }
 
   /* ---------- copy email ---------- */
   var copyBtn = document.getElementById("copyEmail");

@@ -4,8 +4,8 @@
   "description": "Security research tooling, LLM infrastructure and open-source developer tools. 37 public repositories, mostly Python and TypeScript.",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#0d0f12",
-  "theme_color": "#0d0f12",
+  "background_color": "#ffffff",
+  "theme_color": "#ffffff",
   "icons": [
     {
       "src": "/assets/img/favicon.svg",
