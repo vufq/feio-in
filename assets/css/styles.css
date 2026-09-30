@@ -98,7 +98,7 @@ a { color: inherit; }
 
 .kicker {
   margin: 0;
-  font: 500 .75rem/1 var(--mono);
+  font: 500 .8rem/1 var(--mono);
   letter-spacing: .2em;
   text-transform: uppercase;
   color: var(--accent);
@@ -284,7 +284,7 @@ a { color: inherit; }
 /* =========================================================================
    THE INDEX — a full-width tracklist. No boxes, no cells, no fills.
    ========================================================================= */
-.index { padding-block: clamp(2.5rem, 6vh, 4.5rem) clamp(3rem, 8vh, 6rem); }
+.index { padding-block: clamp(2.5rem, 6vh, 4.5rem) clamp(4.5rem, 12vh, 8rem); }
 
 .huge {
   margin: .75rem 0 0;
@@ -329,8 +329,7 @@ a { color: inherit; }
 }
 
 .item {
-  display: grid;
-  grid-template-columns: 3.4rem minmax(0, 1.05fr) minmax(0, 1.5fr) 7.5rem;
+  display: flex;
   align-items: baseline;
   gap: .35rem clamp(1rem, 2vw, 1.75rem);
   padding: 1.05rem .95rem;
@@ -348,6 +347,7 @@ a { color: inherit; }
 }
 
 .item-n {
+  flex: 0 0 3.4rem;
   font: 500 .78rem/1.7 var(--mono);
   letter-spacing: .06em;
   font-variant-numeric: tabular-nums;
@@ -357,6 +357,7 @@ a { color: inherit; }
 .item:focus-visible .item-n { color: var(--on-ink); }
 
 .item-name {
+  flex: 0 0 auto;
   font-size: clamp(1.3rem, 2.3vw, 2rem);
   font-weight: 500;
   line-height: 1.08;
@@ -377,6 +378,9 @@ a { color: inherit; }
 .item:focus-visible .ext { opacity: .85; transform: translate(.12em, -.12em); }
 
 .item-desc {
+  flex: 0 1 auto;
+  min-width: 14ch;
+  max-width: 60ch;
   color: var(--ink-3);
   font-size: .98rem;
   line-height: 1.45;
@@ -386,17 +390,20 @@ a { color: inherit; }
 .item:focus-visible .item-desc { color: #dedede; }
 
 .item-lang {
+  flex: 0 0 auto;
+  margin-left: auto;
   font: 500 .72rem/1.5 var(--mono);
   letter-spacing: .14em;
   text-transform: uppercase;
   color: var(--ink-2);
 }
 .item-self {
-  display: block;
-  margin-top: .35rem;
+  font-size: .52em;
+  font-weight: 400;
+  font-style: italic;
+  letter-spacing: 0;
   text-transform: none;
-  letter-spacing: .06em;
-  color: var(--accent);
+  color: var(--ink-3);
 }
 .item-desc:empty::before {
   content: "\2014";
@@ -405,7 +412,7 @@ a { color: inherit; }
 .item:hover .item-lang,
 .item:focus-visible .item-lang { color: #dedede; }
 .item:hover .item-self,
-.item:focus-visible .item-self { color: var(--on-ink); }
+.item:focus-visible .item-self { color: #dedede; }
 
 /* =========================================================================
    ABOUT
@@ -475,7 +482,7 @@ a { color: inherit; }
 .hello {
   background: var(--accent);
   color: var(--on-accent);
-  padding-block: clamp(3.5rem, 10vh, 7rem);
+  padding-block: clamp(3.5rem, 10vh, 7rem) clamp(2.4rem, 6vh, 4rem);
 }
 .hello .kicker { color: var(--on-accent); }
 
@@ -581,7 +588,13 @@ a { color: inherit; }
    NARROW SCREENS
    ========================================================================= */
 @media (max-width: 900px) {
-  .item { grid-template-columns: 3rem minmax(0, 1fr); }
+  .item { display: grid; grid-template-columns: 3rem minmax(0, 1fr); }
+  .item-n, .item-name, .item-desc, .item-lang {
+    flex: none;
+    margin-left: 0;
+    min-width: 0;
+    max-width: none;
+  }
   .item-n { grid-column: 1; grid-row: 1; }
   .item-name { grid-column: 2; grid-row: 1; }
   .item-desc { grid-column: 2; grid-row: 2; margin-top: .3rem; }
